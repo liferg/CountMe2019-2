@@ -15,6 +15,8 @@
 		7BE401B021DD213000D0F8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE401AE21DD213000D0F8E7 /* LaunchScreen.storyboard */; };
 		7BE401BB21DD213000D0F8E7 /* CountMe2019Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401BA21DD213000D0F8E7 /* CountMe2019Tests.swift */; };
 		7BE401C621DD213000D0F8E7 /* CountMe2019UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401C521DD213000D0F8E7 /* CountMe2019UITests.swift */; };
+		E0D7521321DE749700394DAA /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7521221DE749700394DAA /* Student.swift */; };
+		E0D7521521DE749F00394DAA /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7521421DE749F00394DAA /* Classroom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		7BE401C121DD213000D0F8E7 /* CountMe2019UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountMe2019UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE401C521DD213000D0F8E7 /* CountMe2019UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMe2019UITests.swift; sourceTree = "<group>"; };
 		7BE401C721DD213000D0F8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0D7521221DE749700394DAA /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		E0D7521421DE749F00394DAA /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				7BE401AC21DD213000D0F8E7 /* Assets.xcassets */,
 				7BE401AE21DD213000D0F8E7 /* LaunchScreen.storyboard */,
 				7BE401B121DD213000D0F8E7 /* Info.plist */,
+				E0D7521221DE749700394DAA /* Student.swift */,
+				E0D7521421DE749F00394DAA /* Classroom.swift */,
 			);
 			path = CountMe2019;
 			sourceTree = "<group>";
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0D7521521DE749F00394DAA /* Classroom.swift in Sources */,
 				7BE401A821DD213000D0F8E7 /* SecondViewController.swift in Sources */,
 				7BE401A421DD213000D0F8E7 /* AppDelegate.swift in Sources */,
 				7BE401A621DD213000D0F8E7 /* FirstViewController.swift in Sources */,
+				E0D7521321DE749700394DAA /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
