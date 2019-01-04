@@ -17,6 +17,8 @@
 		7BE401C621DD213000D0F8E7 /* CountMe2019UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401C521DD213000D0F8E7 /* CountMe2019UITests.swift */; };
 		E0D7521321DE749700394DAA /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7521221DE749700394DAA /* Student.swift */; };
 		E0D7521521DE749F00394DAA /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7521421DE749F00394DAA /* Classroom.swift */; };
+		E0D7525321DFC25A00394DAA /* CreateClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7525221DFC25A00394DAA /* CreateClassViewController.swift */; };
+		E0D7525521DFC35B00394DAA /* EditClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7525421DFC35B00394DAA /* EditClassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		7BE401C721DD213000D0F8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0D7521221DE749700394DAA /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		E0D7521421DE749F00394DAA /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		E0D7525221DFC25A00394DAA /* CreateClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClassViewController.swift; sourceTree = "<group>"; };
+		E0D7525421DFC35B00394DAA /* EditClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClassViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +110,14 @@
 				7BE401A321DD213000D0F8E7 /* AppDelegate.swift */,
 				7BE401A521DD213000D0F8E7 /* FirstViewController.swift */,
 				7BE401A721DD213000D0F8E7 /* SecondViewController.swift */,
+				E0D7525221DFC25A00394DAA /* CreateClassViewController.swift */,
 				7BE401A921DD213000D0F8E7 /* Main.storyboard */,
 				7BE401AC21DD213000D0F8E7 /* Assets.xcassets */,
 				7BE401AE21DD213000D0F8E7 /* LaunchScreen.storyboard */,
 				7BE401B121DD213000D0F8E7 /* Info.plist */,
 				E0D7521221DE749700394DAA /* Student.swift */,
 				E0D7521421DE749F00394DAA /* Classroom.swift */,
+				E0D7525421DFC35B00394DAA /* EditClassViewController.swift */,
 			);
 			path = CountMe2019;
 			sourceTree = "<group>";
@@ -266,10 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D7521521DE749F00394DAA /* Classroom.swift in Sources */,
+				E0D7525521DFC35B00394DAA /* EditClassViewController.swift in Sources */,
 				7BE401A821DD213000D0F8E7 /* SecondViewController.swift in Sources */,
 				7BE401A421DD213000D0F8E7 /* AppDelegate.swift in Sources */,
 				7BE401A621DD213000D0F8E7 /* FirstViewController.swift in Sources */,
 				E0D7521321DE749700394DAA /* Student.swift in Sources */,
+				E0D7525321DFC25A00394DAA /* CreateClassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
