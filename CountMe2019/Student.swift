@@ -16,4 +16,5 @@ class Student: NSObject {
         firstName = fN
         lastName = lN
     }
+    
 }

@@ -16,4 +16,7 @@ class Classroom: NSObject {
         classPeriod = period
         className = cN
     }
+    func addStudent(_ stud: Student) {
+        classList.append(stud)
+    }
 }
