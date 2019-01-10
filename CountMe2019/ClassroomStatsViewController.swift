@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ClassroomStatsViewController.swift
 //  CountMe2019
 //
 //  Created by SIEVWRIGHT, CORINN on 1/2/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class ClassroomStatsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,4 +17,3 @@ class FirstViewController: UIViewController {
 
 
 }
-

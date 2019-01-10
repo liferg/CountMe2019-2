@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		49CF5F9F21DFE74F0065B33A /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF5F9E21DFE74F0065B33A /* GlobalData.swift */; };
+		49CF5FA121E795B70065B33A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF5FA021E795B70065B33A /* CollectionViewCell.swift */; };
 		7BE401A421DD213000D0F8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401A321DD213000D0F8E7 /* AppDelegate.swift */; };
-		7BE401A621DD213000D0F8E7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401A521DD213000D0F8E7 /* FirstViewController.swift */; };
-		7BE401A821DD213000D0F8E7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401A721DD213000D0F8E7 /* SecondViewController.swift */; };
+		7BE401A621DD213000D0F8E7 /* CountParticipationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401A521DD213000D0F8E7 /* CountParticipationViewController.swift */; };
+		7BE401A821DD213000D0F8E7 /* ClassroomStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401A721DD213000D0F8E7 /* ClassroomStatsViewController.swift */; };
 		7BE401AB21DD213000D0F8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE401A921DD213000D0F8E7 /* Main.storyboard */; };
 		7BE401AD21DD213000D0F8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BE401AC21DD213000D0F8E7 /* Assets.xcassets */; };
 		7BE401B021DD213000D0F8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BE401AE21DD213000D0F8E7 /* LaunchScreen.storyboard */; };
@@ -41,10 +42,11 @@
 
 /* Begin PBXFileReference section */
 		49CF5F9E21DFE74F0065B33A /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
+		49CF5FA021E795B70065B33A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7BE401A021DD213000D0F8E7 /* CountMe2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountMe2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE401A321DD213000D0F8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7BE401A521DD213000D0F8E7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		7BE401A721DD213000D0F8E7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7BE401A521DD213000D0F8E7 /* CountParticipationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountParticipationViewController.swift; sourceTree = "<group>"; };
+		7BE401A721DD213000D0F8E7 /* ClassroomStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomStatsViewController.swift; sourceTree = "<group>"; };
 		7BE401AA21DD213000D0F8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BE401AC21DD213000D0F8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BE401AF21DD213000D0F8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,9 +113,10 @@
 			children = (
 				7BE401A321DD213000D0F8E7 /* AppDelegate.swift */,
 				49CF5F9E21DFE74F0065B33A /* GlobalData.swift */,
-				7BE401A521DD213000D0F8E7 /* FirstViewController.swift */,
-				7BE401A721DD213000D0F8E7 /* SecondViewController.swift */,
+				7BE401A521DD213000D0F8E7 /* CountParticipationViewController.swift */,
+				7BE401A721DD213000D0F8E7 /* ClassroomStatsViewController.swift */,
 				E0D7525421DFC35B00394DAA /* EditClassViewController.swift */,
+				49CF5FA021E795B70065B33A /* CollectionViewCell.swift */,
 				E0D7525221DFC25A00394DAA /* CreateClassViewController.swift */,
 				7BE401A921DD213000D0F8E7 /* Main.storyboard */,
 				7BE401AC21DD213000D0F8E7 /* Assets.xcassets */,
@@ -276,9 +279,10 @@
 			files = (
 				E0D7521521DE749F00394DAA /* Classroom.swift in Sources */,
 				E0D7525521DFC35B00394DAA /* EditClassViewController.swift in Sources */,
-				7BE401A821DD213000D0F8E7 /* SecondViewController.swift in Sources */,
+				49CF5FA121E795B70065B33A /* CollectionViewCell.swift in Sources */,
+				7BE401A821DD213000D0F8E7 /* ClassroomStatsViewController.swift in Sources */,
 				7BE401A421DD213000D0F8E7 /* AppDelegate.swift in Sources */,
-				7BE401A621DD213000D0F8E7 /* FirstViewController.swift in Sources */,
+				7BE401A621DD213000D0F8E7 /* CountParticipationViewController.swift in Sources */,
 				E0D7521321DE749700394DAA /* Student.swift in Sources */,
 				49CF5F9F21DFE74F0065B33A /* GlobalData.swift in Sources */,
 				E0D7525321DFC25A00394DAA /* CreateClassViewController.swift in Sources */,

@@ -17,15 +17,18 @@ class CreateClassViewController: UIViewController{
     }
     
     @IBOutlet weak var period: UITextField!
+    @IBOutlet weak var periodFinal: UILabel!
     @IBOutlet weak var className: UITextField!
+    @IBOutlet weak var classNameFinal: UILabel!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var check: UILabel!
+    @IBOutlet weak var submitClass: UIButton!
     @IBAction func doneButton(_ sender: Any) {
     }
     
     @IBAction func printInfo(_ sender: Any) {
-        check.text = classesArray[0].className
+        check.text = classesArray[0].classList[0].firstName
     }
     var per: Int = 0
     var name: String = ""
@@ -33,10 +36,22 @@ class CreateClassViewController: UIViewController{
     var lastN: String = ""
     
     @IBAction func createClass(_ sender: Any) {
-        per = Int(period.text!)!
-        name = String(className.text!)
-        var mobileapps = Classroom(per, name)
-        classesArray.append(mobileapps)
+        if period == nil && className == nil
+        {
+            
+        }
+        else
+        {
+            per = Int(period.text!)!
+            name = String(className.text!)
+            var mobileapps = Classroom(per, name)
+            classesArray.append(mobileapps)
+            periodFinal.text = String(per)
+            classNameFinal.text = name
+            period.text = ""
+            className.text = ""
+            submitClass.setTitle( "Submit Edit" , for: .normal)
+        }
     }
     @IBAction func createStudent(_ sender: Any) {
         firstN = String(firstName.text!)
