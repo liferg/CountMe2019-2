@@ -13,8 +13,8 @@ class Student: NSObject {
     var studentParticipation = [String: Int]()
     init(_ fN: String, _ lN: String)
     {
-        firstName = fN
-        lastName = lN
+        self.firstName = fN
+        self.lastName = lN
     }
     
 }

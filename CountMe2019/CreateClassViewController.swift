@@ -24,42 +24,67 @@ class CreateClassViewController: UIViewController{
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var check: UILabel!
     @IBOutlet weak var submitClass: UIButton!
+    @IBOutlet weak var countVal: UILabel!
     @IBAction func doneButton(_ sender: Any) {
     }
     
-    @IBAction func printInfo(_ sender: Any) {
-        check.text = classesArray[0].classList[0].firstName
-    }
     var per: Int = 0
     var name: String = ""
     var firstN: String = ""
     var lastN: String = ""
+    var classIndex: Int = 0
+    var count: Int = 0
+    var nameCheck: String = ""
     
     @IBAction func createClass(_ sender: Any) {
-        if period == nil && className == nil
-        {
-            
-        }
-        else
-        {
+        if period.text != "" && className.text != "" {
             per = Int(period.text!)!
             name = String(className.text!)
-            var mobileapps = Classroom(per, name)
-            classesArray.append(mobileapps)
+            var newClass = Classroom(per, name)
+            classesArray.append(newClass)
+            classIndex = classesArray.firstIndex(of: newClass) ?? 0
             periodFinal.text = String(per)
             classNameFinal.text = name
             period.text = ""
             className.text = ""
-            submitClass.setTitle( "Submit Edit" , for: .normal)
+            submitClass.setTitle("Submit Edit" , for: .normal)
         }
     }
     @IBAction func createStudent(_ sender: Any) {
         firstN = String(firstName.text!)
         lastN = String(lastName.text!)
-        var student0 = Student(firstN, lastN)
-        classesArray[0].addStudent(student0)
+        var student = Student(firstN, lastN)
+        classesArray[classIndex].addStudent(student)
+        firstName.text = ""
+        lastName.text = ""
+        count = count + 1
+        classesArray[classIndex].count = count
+        let countText = String(count)
+        countVal.text = countText
+        nameCheck = firstN
     }
     
+    @IBAction func printInfo(_ sender: Any) {
+        check.text = nameCheck
+    }
+    
+    @IBAction func allDone(_ sender: Any) {
+        period.text = ""
+        className.text = ""
+        periodFinal.text = ""
+        classNameFinal.text = ""
+        firstName.text = ""
+        lastName.text = ""
+        countVal.text = "0"
+        check.text = "Student first name"
+        per = 0
+        name = ""
+        firstN = ""
+        lastN = ""
+        classIndex = 0
+        count = 0
+        nameCheck = ""
+    }
     /*
     // MARK: - Navigation
 
