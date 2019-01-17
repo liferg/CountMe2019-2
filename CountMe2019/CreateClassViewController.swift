@@ -28,6 +28,7 @@ class CreateClassViewController: UIViewController{
     @IBAction func doneButton(_ sender: Any) {
     }
     
+    //
     var per: Int = 0
     var name: String = ""
     var firstN: String = ""
