@@ -10,4 +10,5 @@ import Foundation
 
 // array of classes
 var classesArray = [Classroom]()
+var studentsArray = [Student]()
 

@@ -54,7 +54,7 @@ class CreateClassViewController: UIViewController{
     @IBAction func createStudent(_ sender: Any) {
         firstN = String(firstName.text!)
         lastN = String(lastName.text!)
-        var student = Student(firstN, lastN)
+        var student = Student(firstN, lastN, 0)
         classesArray[classIndex].addStudent(student)
         firstName.text = ""
         lastName.text = ""
@@ -88,7 +88,6 @@ class CreateClassViewController: UIViewController{
     }
     /*
     // MARK: - Navigation
-// hi
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

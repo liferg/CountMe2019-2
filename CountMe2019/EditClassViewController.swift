@@ -12,8 +12,8 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var math = Classroom(7, "math")
-        classesArray.append(math)
+        var uma = Student("Uma", "Parhar", 0)
+        studentsArray.append(uma)
         /*var history = Classroom(1, "history")
         classesArray.append(history)
         var science = Classroom(2, "science")
@@ -25,12 +25,12 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return classesArray.count
+        return studentsArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
-        cell.myLabel.text = classesArray[0].className
+        cell.myLabel.text = studentsArray[0].firstName + " " + studentsArray[0].lastName
         
         /*for i in stride(from: 0, to: classesArray.count, by: 1)
         {
