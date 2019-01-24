@@ -36,14 +36,18 @@ class CreateClassViewController: UIViewController{
     var classIndex: Int = 0
     var count: Int = 0
     var nameCheck: String = ""
+    var newClassCheck = 0
     
     @IBAction func createClass(_ sender: Any) {
         if period.text != "" && className.text != "" {
             per = Int(period.text!)!
             name = String(className.text!)
-            var newClass = Classroom(per, name)
-            classesArray.append(newClass)
-            classIndex = classesArray.firstIndex(of: newClass) ?? 0
+            if newClassCheck == 0 {
+                var newClass = Classroom(per, name)
+                classesArray.append(newClass)
+                classIndex = classesArray.firstIndex(of: newClass) ?? 0
+                newClassCheck = 1
+            }
             periodFinal.text = String(per)
             classNameFinal.text = name
             period.text = ""
@@ -52,17 +56,18 @@ class CreateClassViewController: UIViewController{
         }
     }
     @IBAction func createStudent(_ sender: Any) {
-        firstN = String(firstName.text!)
-        lastN = String(lastName.text!)
-        var student = Student(firstN, lastN, 0)
-        classesArray[classIndex].addStudent(student)
-        firstName.text = ""
-        lastName.text = ""
-        count = count + 1
-        classesArray[classIndex].count = count
-        let countText = String(count)
-        countVal.text = countText
-        nameCheck = firstN
+        if newClassCheck == 1 {
+            firstN = String(firstName.text!)
+            lastN = String(lastName.text!)
+            var student = Student(firstN, lastN, 0)
+            classesArray[classIndex].addStudent(student)
+            firstName.text = ""
+            lastName.text = ""
+            count = count + 1
+            classesArray[classIndex].count = count
+            let countText = String(count)
+            countVal.text = countText
+        }
     }
     
     @IBAction func printInfo(_ sender: Any) {
@@ -78,6 +83,7 @@ class CreateClassViewController: UIViewController{
         lastName.text = ""
         countVal.text = "0"
         check.text = "Student first name"
+        submitClass.setTitle("Submit" , for: .normal)
         per = 0
         name = ""
         firstN = ""
@@ -85,6 +91,7 @@ class CreateClassViewController: UIViewController{
         classIndex = 0
         count = 0
         nameCheck = ""
+        newClassCheck = 0
     }
     /*
     // MARK: - Navigation
