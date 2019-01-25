@@ -12,7 +12,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var uma = Student("Uma", "Parhar", 0)
+        var uma = Student("Uma", "Parhar")
         studentsArray.append(uma)
         /*var history = Classroom(1, "history")
         classesArray.append(history)

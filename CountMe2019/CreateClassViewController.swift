@@ -22,7 +22,6 @@ class CreateClassViewController: UIViewController{
     @IBOutlet weak var classNameFinal: UILabel!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
-    @IBOutlet weak var check: UILabel!
     @IBOutlet weak var submitClass: UIButton!
     @IBOutlet weak var countVal: UILabel!
     @IBAction func doneButton(_ sender: Any) {
@@ -34,7 +33,6 @@ class CreateClassViewController: UIViewController{
     var firstN: String = ""
     var lastN: String = ""
     var classIndex: Int = 0
-    var count: Int = 0
     var nameCheck: String = ""
     var newClassCheck = 0
     
@@ -48,6 +46,8 @@ class CreateClassViewController: UIViewController{
                 classIndex = classesArray.firstIndex(of: newClass) ?? 0
                 newClassCheck = 1
             }
+            classesArray[classIndex].className = name
+            classesArray[classIndex].classPeriod = per
             periodFinal.text = String(per)
             classNameFinal.text = name
             period.text = ""
@@ -59,19 +59,13 @@ class CreateClassViewController: UIViewController{
         if newClassCheck == 1 {
             firstN = String(firstName.text!)
             lastN = String(lastName.text!)
-            var student = Student(firstN, lastN, 0)
+            var student = Student(firstN, lastN)
             classesArray[classIndex].addStudent(student)
             firstName.text = ""
             lastName.text = ""
-            count = count + 1
-            classesArray[classIndex].count = count
-            let countText = String(count)
+            let countText = String(classesArray[classIndex].count)
             countVal.text = countText
         }
-    }
-    
-    @IBAction func printInfo(_ sender: Any) {
-        check.text = nameCheck
     }
     
     @IBAction func allDone(_ sender: Any) {
@@ -82,14 +76,12 @@ class CreateClassViewController: UIViewController{
         firstName.text = ""
         lastName.text = ""
         countVal.text = "0"
-        check.text = "Student first name"
         submitClass.setTitle("Submit" , for: .normal)
         per = 0
         name = ""
         firstN = ""
         lastN = ""
         classIndex = 0
-        count = 0
         nameCheck = ""
         newClassCheck = 0
     }

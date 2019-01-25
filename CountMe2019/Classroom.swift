@@ -20,5 +20,6 @@ class Classroom: NSObject {
     }
     func addStudent(_ stud: Student) {
         classList.append(stud)
+        count = count + 1
     }
 }
