@@ -15,12 +15,12 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         
         
-        if(classesArray.count == 0)
+        /*if(classesArray.count == 0)
         {
             performSegue(withIdentifier: "toEdit", sender: self)
         }
         
-        /*var uma = Student("Uma", "Parhar")
+        var uma = Student("Uma", "Parhar")
         studentsArray.append(uma)
  */
         /*
@@ -36,7 +36,8 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(classesArray.count != 0)
+       return classesArray[0].classList.count
+        /*if(classesArray.count != 0)
         {
             return classesArray[0].classList.count
         }
@@ -45,12 +46,13 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
             performSegue(withIdentifier: "toEdit", sender: self)
             return 0
         }
+ */
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
-        cell.myLabel.text = classesArray[0].classList[0].firstName + " " + classesArray[0].classList[0].lastName
-        
+        cell.myLabel.text = classesArray[0].classList[indexPath.row].firstName
+
         /*for i in stride(from: 0, to: classesArray.count, by: 1)
         {
         cell.myLabel.text = classesArray[i].className
