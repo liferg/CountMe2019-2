@@ -16,8 +16,8 @@ class CollectionViewCell: UICollectionViewCell {
     var y: String = ""
     @IBAction func StudentButtonAction(_ sender: Any) {
     classesArray[0].classList[0].count = classesArray[0].classList[0].count + 1
-        let x = studentsArray[0].count
-        let y = String(x)
-        StudentCountButton.setTitle(y, for: .normal)
+        let countInt = classesArray[0].classList[0].count
+        let countString = String(countInt)
+        StudentCountButton.setTitle(countString, for: .normal)
     }
 }
