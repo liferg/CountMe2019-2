@@ -15,7 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var StudentButton: UIButton!
     var y: String = ""
     @IBAction func StudentButtonAction(_ sender: Any) {
-    studentsArray[0].count = studentsArray[0].count + 1
+    classesArray[0].classList[0].count = classesArray[0].classList[0].count + 1
         let x = studentsArray[0].count
         let y = String(x)
         StudentCountButton.setTitle(y, for: .normal)

@@ -12,10 +12,21 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var uma = Student("Uma", "Parhar")
+        
+        
+        
+        if(classesArray.count == 0)
+        {
+            performSegue(withIdentifier: "toEdit", sender: self)
+        }
+        
+        /*var uma = Student("Uma", "Parhar")
         studentsArray.append(uma)
-        /*var history = Classroom(1, "history")
+ */
+        /*
+        var history = Classroom(1, "history")
         classesArray.append(history)
+        
         var science = Classroom(2, "science")
         classesArray.append(science)
          */
@@ -25,12 +36,20 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return studentsArray.count
+        if(classesArray.count != 0)
+        {
+            return classesArray[0].classList.count
+        }
+        else
+        {
+            performSegue(withIdentifier: "toEdit", sender: self)
+            return 0
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
-        cell.myLabel.text = studentsArray[0].firstName + " " + studentsArray[0].lastName
+        cell.myLabel.text = classesArray[0].classList[0].firstName + " " + classesArray[0].classList[0].lastName
         
         /*for i in stride(from: 0, to: classesArray.count, by: 1)
         {
