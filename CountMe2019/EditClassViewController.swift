@@ -51,8 +51,8 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
-        cell.myLabel.text = classesArray[0].classList[indexPath.row].firstName
-
+        cell.myLabel.text = classesArray[0].classList[indexPath.row].firstName + " " + classesArray[0].classList[indexPath.row].lastName
+        cell.index = indexPath.row
         /*for i in stride(from: 0, to: classesArray.count, by: 1)
         {
         cell.myLabel.text = classesArray[i].className
