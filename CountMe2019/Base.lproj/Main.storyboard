@@ -306,7 +306,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DwM-v9-WOZ">
-                                <rect key="frame" x="37" y="159" width="967" height="1157"/>
+                                <rect key="frame" x="52" y="187" width="952" height="1129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XfO-v3-F36">
@@ -356,8 +356,12 @@
                                     <outlet property="delegate" destination="hdc-IM-OGl" id="MZd-8N-uJG"/>
                                 </connections>
                             </collectionView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeH-SB-xkz">
+                                <rect key="frame" x="558" y="0.0" width="446" height="85"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count Participation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mea-hN-ial">
-                                <rect key="frame" x="186" y="50" width="668" height="101"/>
+                                <rect key="frame" x="186" y="78" width="668" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="84"/>
                                 <nil key="textColor"/>
@@ -369,12 +373,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="dzu-fo-Iwd"/>
                     <connections>
+                        <outlet property="ClassPicker" destination="OeH-SB-xkz" id="J5B-8R-7jL"/>
                         <segue destination="Zhb-J1-kCN" kind="show" identifier="toEdit" id="Sla-xH-rxV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4l-d6-wCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="-1304"/>
+            <point key="canvasLocation" x="748.828125" y="-1304.099560761347"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
