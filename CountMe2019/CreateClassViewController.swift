@@ -63,7 +63,7 @@ class CreateClassViewController: UIViewController{
             classesArray[classIndex].addStudent(student)
             firstName.text = ""
             lastName.text = ""
-            let countText = String(classesArray[classIndex].count)
+            let countText = String(classesArray[classIndex].classList.count)
             countVal.text = countText
         }
     }

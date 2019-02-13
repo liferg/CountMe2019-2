@@ -11,15 +11,12 @@ class Classroom: NSObject {
     var classPeriod: Int
     var className: String
     var classList = [Student]()
-    var count: Int
     init(_ period: Int, _ cN: String)
     {
         self.classPeriod = period
         self.className = cN
-        self.count = 0
     }
     func addStudent(_ stud: Student) {
         classList.append(stud)
-        count = count + 1
     }
 }

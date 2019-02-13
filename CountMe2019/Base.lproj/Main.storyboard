@@ -360,6 +360,14 @@
                                 <rect key="frame" x="558" y="0.0" width="446" height="85"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1v-JY-YUa">
+                                <rect key="frame" x="936" y="93" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="SubmitClassButton:" destination="hdc-IM-OGl" eventType="touchUpInside" id="NwU-tC-Dlu"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count Participation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mea-hN-ial">
                                 <rect key="frame" x="186" y="78" width="668" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -374,6 +382,8 @@
                     <tabBarItem key="tabBarItem" title="Item" id="dzu-fo-Iwd"/>
                     <connections>
                         <outlet property="ClassPicker" destination="OeH-SB-xkz" id="J5B-8R-7jL"/>
+                        <outlet property="SubmitClass" destination="Y1v-JY-YUa" id="D2K-vi-ZkQ"/>
+                        <outlet property="collection" destination="DwM-v9-WOZ" id="SRc-zx-ZYx"/>
                         <segue destination="Zhb-J1-kCN" kind="show" identifier="toEdit" id="Sla-xH-rxV"/>
                     </connections>
                 </viewController>
