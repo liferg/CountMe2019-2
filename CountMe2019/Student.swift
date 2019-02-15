@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Student: NSObject {
+class Student: NSObject, Codable {
     var firstName: String
     var lastName: String
     var count: Int

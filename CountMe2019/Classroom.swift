@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Classroom: NSObject {
+class Classroom: NSObject, Codable {
     var classPeriod: Int
     var className: String
     var classList = [Student]()

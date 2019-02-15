@@ -10,9 +10,13 @@ import UIKit
 
 class CreateClassViewController: UIViewController{
 
+    var persistentStudent = PersistentData()
+    var persistentClassroom = ClassroomPersistentData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        persistentStudent.restore(fileName: "test1")
+        persistentClassroom.restore(fileName: "test2")
         // Do any additional setup after loading the view.
     }
     

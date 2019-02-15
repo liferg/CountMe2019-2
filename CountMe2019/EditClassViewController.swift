@@ -35,7 +35,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
 
     @IBOutlet weak var ClassPicker: UIPickerView!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
             return classesArray[classP].classList.count
         /*performSegue(withIdentifier: "toEdit", sender: self)
          */
