@@ -13,13 +13,17 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
     // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return and sets number of rows
-        var x = classesArray[0].classList.count
-        return x
+        if(classesArray.count != 0) {
+            return classesArray[classP].classList.count
+        }
+        else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        var name = classesArray[0].classList[indexPath.row]
+        var name = classesArray[classP].classList[indexPath.row]
         cell.textLabel?.text = name.firstName + " " + name.lastName
         return(cell)
     }
@@ -27,7 +31,7 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
-            classesArray[0].classList.remove(at: indexPath.row)
+            classesArray[classP].classList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         

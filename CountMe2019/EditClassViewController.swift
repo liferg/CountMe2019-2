@@ -17,6 +17,8 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var pickerData: [Classroom] = []
     @IBOutlet weak var collection: UICollectionView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ClassPicker.delegate = self
@@ -32,10 +34,30 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         // Do any additional setup after loading the view.
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.ClassPicker.delegate = self
+        self.ClassPicker.dataSource = self
+        pickerData = classesArray
+        /*if(classesArray.count == 0)
+         {
+         performSegue(withIdentifier: "toEdit", sender: self)
+         }
+         */
+        
+        // Do any additional setup after loading the view.
+        
+    }
 
     @IBOutlet weak var ClassPicker: UIPickerView!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(classesArray.count != 0) {
             return classesArray[classP].classList.count
+        }
+        else {
+            return 0
+        }
         /*performSegue(withIdentifier: "toEdit", sender: self)
          */
     }
