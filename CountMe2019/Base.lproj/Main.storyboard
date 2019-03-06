@@ -57,6 +57,9 @@
                                 <state key="normal" title="Delete Class">
                                     <color key="titleColor" red="1" green="0.057317200079999998" blue="0.084160378590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="D0v-j1-O8R" kind="presentation" modalPresentationStyle="overCurrentContext" id="gKe-Fs-oSm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-576.28111273792092"/>
         </scene>
-        <!--View Controller-->
+        <!--Delete Class View Controller-->
         <scene sceneID="WAp-GQ-5I9">
             <objects>
-                <viewController id="D0v-j1-O8R" sceneMemberID="viewController">
+                <viewController id="D0v-j1-O8R" customClass="DeleteClassViewController" customModule="CountMe2019" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lL8-JT-eaN">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,6 +94,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Yes, I am sure"/>
+                                        <connections>
+                                            <action selector="yesDelete:" destination="D0v-j1-O8R" eventType="touchUpInside" id="Uu3-y6-yhi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-4J-fVM">
                                         <rect key="frame" x="226" y="429" width="245" height="60"/>
@@ -99,6 +105,9 @@
                                         <state key="normal" title="No, keep class">
                                             <color key="titleColor" red="1" green="0.057317200079999998" blue="0.084160378590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="noDelete:" destination="D0v-j1-O8R" eventType="touchUpInside" id="VR9-Io-JTD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
