@@ -10,6 +10,8 @@ import UIKit
 
 class CountParticipationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var editClassTableView: UITableView!
+    
     // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return and sets number of rows
@@ -36,6 +38,11 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         }
         
         return [delete]
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        editClassTableView.reloadData()
     }
     
     override func viewDidLoad() {
