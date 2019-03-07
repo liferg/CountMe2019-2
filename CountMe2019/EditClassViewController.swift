@@ -11,11 +11,11 @@ import UIKit
 class EditClassViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
     @IBOutlet weak var SubmitClass: UIButton!
+    
     @IBAction func SubmitClassButton(_ sender: Any) {
         collection.reloadData()
     }
     
-    var pickerData: [Classroom] = []
     @IBOutlet weak var collection: UICollectionView!
     
     
@@ -23,7 +23,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
-        pickerData = classesArray
+        collection.reloadData()
         /*if(classesArray.count == 0)
          {
          performSegue(withIdentifier: "toEdit", sender: self)
@@ -39,7 +39,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidAppear(true)
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
-        pickerData = classesArray
+        collection.reloadData()
         /*if(classesArray.count == 0)
          {
          performSegue(withIdentifier: "toEdit", sender: self)
@@ -50,6 +50,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
 
+    // PICKER VIEW FUNCTIONS
     @IBOutlet weak var ClassPicker: UIPickerView!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(classesArray.count != 0) {
@@ -61,33 +62,49 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         /*performSegue(withIdentifier: "toEdit", sender: self)
          */
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
-        cell.myLabel.text = classesArray[classP].classList[indexPath.row].firstName + " " + classesArray[classP].classList[indexPath.row].lastName
-        cell.index = indexPath.row
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
-    }
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return classesArray.count
     }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        return pickerData[row].className
+        return classesArray[row].className
     }
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         let r = row
         classP = r
         collection.reloadData()
     }
+    
+    // COLLECTION VIEW FUNCTIONS
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
+        cell.myLabel.text = classesArray[classP].classList[indexPath.row].firstName + " " + classesArray[classP].classList[indexPath.row].lastName
+        cell.index = indexPath.row
+        
+        // reset
+        cell.StudentButton.backgroundColor = nil
+        cell.StudentCountButton.setTitle("", for: .normal)
+        
+        // color and count in top right corner check
+        let countInt = classesArray[classP].classList[indexPath.row].count
+        let countString = String(countInt)
+        cell.StudentCountButton.setTitle(countString, for: .normal)
+        if (classesArray[classP].classList[indexPath.row].count > 0)
+        {
+            cell.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
+        }
+        
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
+    
+    
     /*
      // MARK: - Navigation
      

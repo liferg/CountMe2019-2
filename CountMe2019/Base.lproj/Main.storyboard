@@ -640,6 +640,10 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeH-SB-xkz">
                                 <rect key="frame" x="558" y="0.0" width="446" height="85"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hdc-IM-OGl" id="h7C-Zb-tsK"/>
+                                    <outlet property="delegate" destination="hdc-IM-OGl" id="GyX-up-OKe"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1v-JY-YUa">
                                 <rect key="frame" x="936" y="93" width="46" height="30"/>

@@ -18,7 +18,10 @@ class CollectionViewCell: UICollectionViewCell {
         classesArray[classP].classList[index].count = classesArray[classP].classList[index].count + 1
         let countInt = classesArray[classP].classList[index].count
         let countString = String(countInt)
-        StudentCountButton.setTitle(countString, for: .normal)
-        self.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
+        self.StudentCountButton.setTitle(countString, for: .normal)
+        if (classesArray[classP].classList[index].count > 0)
+        {
+            self.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
+        }
     }
 }

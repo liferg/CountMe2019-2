@@ -10,6 +10,5 @@ import Foundation
 
 // array of classes
 var classesArray = [Classroom]()
-var studentsArray = [Student]()
 var classP: Int = 0
 

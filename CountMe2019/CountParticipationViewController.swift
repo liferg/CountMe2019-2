@@ -12,6 +12,18 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
     
     @IBOutlet weak var editClassTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        editClassTableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    // TABLE VIEW FUNCTIONS
+    
     // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return and sets number of rows
@@ -23,6 +35,7 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
+    // decides what is in each row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
         var name = classesArray[classP].classList[indexPath.row]
@@ -30,6 +43,7 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         return(cell)
     }
     
+    // function that deletes a row
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let delete = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
@@ -38,16 +52,6 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         }
         
         return [delete]
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        editClassTableView.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 }
 
