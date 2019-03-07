@@ -10,15 +10,11 @@ import UIKit
 
 class EditClassViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource
 {
-    @IBOutlet weak var SubmitClass: UIButton!
-    
-    @IBAction func SubmitClassButton(_ sender: Any) {
-        collection.reloadData()
-    }
-    
+    // outlets
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var ClassPicker: UIPickerView!
     
-    
+    // loading functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ClassPicker.delegate = self
@@ -51,17 +47,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
 
     // PICKER VIEW FUNCTIONS
-    @IBOutlet weak var ClassPicker: UIPickerView!
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(classesArray.count != 0) {
-            return classesArray[classP].classList.count
-        }
-        else {
-            return 0
-        }
-        /*performSegue(withIdentifier: "toEdit", sender: self)
-         */
-    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -74,12 +59,21 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        let r = row
-        classP = r
+        classP = row
         collection.reloadData()
     }
     
     // COLLECTION VIEW FUNCTIONS
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(classesArray.count != 0) {
+            return classesArray[classP].classList.count
+        }
+        else {
+            return 0
+        }
+        /*performSegue(withIdentifier: "toEdit", sender: self)
+         */
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
         cell.myLabel.text = classesArray[classP].classList[indexPath.row].firstName + " " + classesArray[classP].classList[indexPath.row].lastName
