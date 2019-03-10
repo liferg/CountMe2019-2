@@ -17,7 +17,7 @@ class AddStudentViewController: UIViewController {
         var first = String(fName.text!)
         var last = String(lName.text!)
         var stud = Student(first, last)
-        classesArray[0].addStudent(stud)
+        classesArray[classP].addStudent(stud)
         dismiss(animated: true)
     }
     

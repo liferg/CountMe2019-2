@@ -30,7 +30,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         // Do any additional setup after loading the view.
         
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.ClassPicker.delegate = self
@@ -46,24 +45,9 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
 
-    // PICKER VIEW FUNCTIONS
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return classesArray.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        return classesArray[row].className
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        classP = row
-        collection.reloadData()
-    }
-    
     // COLLECTION VIEW FUNCTIONS
+    
+    // number of cells displayed
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(classesArray.count != 0) {
             return classesArray[classP].classList.count
@@ -74,16 +58,22 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         /*performSegue(withIdentifier: "toEdit", sender: self)
          */
     }
+    // what is displayed in each cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // makes or reuses cells
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell" , for: indexPath) as! CollectionViewCell
+        
+        // displays student name in cell
         cell.myLabel.text = classesArray[classP].classList[indexPath.row].firstName + " " + classesArray[classP].classList[indexPath.row].lastName
+        
+        // sends the index to the CollectionViewCell class
         cell.index = indexPath.row
         
-        // reset
+        // reset cell
         cell.StudentButton.backgroundColor = nil
         cell.StudentCountButton.setTitle("", for: .normal)
         
-        // color and count in top right corner check
+        // cell color and count is refreshed
         let countInt = classesArray[classP].classList[indexPath.row].count
         let countString = String(countInt)
         cell.StudentCountButton.setTitle(countString, for: .normal)
@@ -91,14 +81,34 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         {
             cell.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
         }
-        
         return cell
     }
+    // tells the delegate that the item at the specified index path was selected
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
     }
     
+    // PICKER VIEW FUNCTIONS
     
+    // components of pickerview
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    // number of rows
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return classesArray.count
+    }
+    // title of row
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return classesArray[row].className
+    }
+    // what it will do when you select or scroll to a row
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        classP = row
+        collection.reloadData()
+    }
     /*
      // MARK: - Navigation
      
@@ -108,5 +118,4 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
      // Pass the selected object to the new view controller.
      }
      */
-    
 }

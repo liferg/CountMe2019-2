@@ -10,17 +10,11 @@ import UIKit
 
 class CreateClassViewController: UIViewController{
 
+    // persistent data testing
     var persistentStudent = PersistentData()
     var persistentClassroom = ClassroomPersistentData()
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        persistentStudent.restore(fileName: "test1")
-        persistentClassroom.restore(fileName: "test2")
-        // Do any additional setup after loading the view.
-    }
-    
+    // outlets
     @IBOutlet weak var period: UITextField!
     @IBOutlet weak var periodFinal: UILabel!
     @IBOutlet weak var className: UITextField!
@@ -32,7 +26,15 @@ class CreateClassViewController: UIViewController{
     @IBAction func doneButton(_ sender: Any) {
     }
     
-    //
+    // loading functions
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        persistentStudent.restore(fileName: "test1")
+        persistentClassroom.restore(fileName: "test2")
+        // Do any additional setup after loading the view.
+    }
+    
+    // variables
     var per: Int = 0
     var name: String = ""
     var firstN: String = ""
@@ -41,6 +43,7 @@ class CreateClassViewController: UIViewController{
     var nameCheck: String = ""
     var newClassCheck = 0
     
+    // creates new class (submit button)
     @IBAction func createClass(_ sender: Any) {
         if period.text != "" && className.text != "" {
             per = Int(period.text!)!
@@ -60,19 +63,24 @@ class CreateClassViewController: UIViewController{
             submitClass.setTitle("Submit Edit" , for: .normal)
         }
     }
+    
+    // creates new student (add button)
     @IBAction func createStudent(_ sender: Any) {
         if newClassCheck == 1 {
-            firstN = String(firstName.text!)
-            lastN = String(lastName.text!)
-            var student = Student(firstN, lastN)
-            classesArray[classIndex].addStudent(student)
-            firstName.text = ""
-            lastName.text = ""
-            let countText = String(classesArray[classIndex].classList.count)
-            countVal.text = countText
+            if firstName.text != "" && lastName.text != "" {
+                firstN = String(firstName.text!)
+                lastN = String(lastName.text!)
+                var student = Student(firstN, lastN)
+                classesArray[classIndex].addStudent(student)
+                firstName.text = ""
+                lastName.text = ""
+                let countText = String(classesArray[classIndex].classList.count)
+                countVal.text = countText
+            }
         }
     }
     
+    // refreshes page for additonal class to be added
     @IBAction func allDone(_ sender: Any) {
         period.text = ""
         className.text = ""

@@ -10,10 +10,11 @@ import UIKit
 
 class CountParticipationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    // outlets
     @IBOutlet weak var editClassTableView: UITableView!
     @IBOutlet weak var editClassPickerView: UIPickerView!
     
-    //loading functions
+    // loading functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.editClassPickerView.delegate = self
@@ -24,6 +25,7 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
         self.editClassPickerView.delegate = self
         self.editClassPickerView.dataSource = self
+        editClassTableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -58,16 +60,21 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         
         return [delete]
     }
+    // PICKER VIEW FUNCTIONS
     
+    // components of pickerview
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    // number of rows
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return classesArray.count
     }
+    // title of row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return classesArray[row].className
     }
+    // what it will do when you select or scroll to a row
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         classP = row
         editClassTableView.reloadData()

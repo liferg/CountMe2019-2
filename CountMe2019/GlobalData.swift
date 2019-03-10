@@ -10,5 +10,6 @@ import Foundation
 
 // array of classes
 var classesArray = [Classroom]()
+// index changed across view controllers 
 var classP: Int = 0
 

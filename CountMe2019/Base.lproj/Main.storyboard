@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Edit Class-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="CountParticipationViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,7 +76,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Edit Class" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="editClassPickerView" destination="7yM-2q-36h" id="uR7-xp-jQ9"/>
                         <outlet property="editClassTableView" destination="5CE-qf-pzI" id="lrb-IU-yjp"/>
@@ -242,19 +242,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CREATE A CLASS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy8-7B-GAE">
-                                <rect key="frame" x="245" y="47" width="534" height="190"/>
+                                <rect key="frame" x="245" y="47" width="534" height="140"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="67"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxs-Fv-WE6">
-                                <rect key="frame" x="92" y="627" width="421" height="60"/>
+                                <rect key="frame" x="92" y="577" width="421" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBD-nF-COG">
-                                <rect key="frame" x="433" y="827" width="158" height="75.5"/>
+                                <rect key="frame" x="433" y="777" width="158" height="75.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="43"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
@@ -262,7 +262,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Class Count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5L-4Y-bHM">
-                                <rect key="frame" x="92" y="915" width="272" height="60"/>
+                                <rect key="frame" x="92" y="865" width="272" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="x8B-aI-isL"/>
                                 </constraints>
@@ -271,13 +271,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Period" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BHb-it-24n">
-                                <rect key="frame" x="92" y="298" width="421" height="57"/>
+                                <rect key="frame" x="92" y="248" width="421" height="57"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJ3-K7-1A3">
-                                <rect key="frame" x="628" y="628.5" width="353" height="57"/>
+                                <rect key="frame" x="628" y="578.5" width="353" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="WP1-AU-fgD"/>
                                 </constraints>
@@ -286,7 +286,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBA-4s-ZjG">
-                                <rect key="frame" x="380" y="1073.5" width="264" height="65"/>
+                                <rect key="frame" x="380" y="1023.5" width="264" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="54b-QV-k2r"/>
                                 </constraints>
@@ -298,7 +298,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Last Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjC-N7-r5z">
-                                <rect key="frame" x="92" y="719" width="420" height="99"/>
+                                <rect key="frame" x="92" y="669" width="420" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="tqT-Q5-sTc"/>
                                 </constraints>
@@ -307,13 +307,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNe-Ac-siL">
-                                <rect key="frame" x="628" y="739.5" width="353" height="58"/>
+                                <rect key="frame" x="628" y="689.5" width="353" height="58"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6IS-pC-wjJ">
-                                <rect key="frame" x="92" y="409" width="421" height="57"/>
+                                <rect key="frame" x="92" y="359" width="421" height="57"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -334,7 +334,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMC-Jw-uN0">
-                                <rect key="frame" x="380" y="487" width="264" height="64"/>
+                                <rect key="frame" x="380" y="437" width="264" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Wqu-4j-DCh"/>
                                 </constraints>
@@ -416,7 +416,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="57B-4q-IKb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ibd-zg-3ml"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="Ibd-zg-3ml" userLabel="Create A Class"/>
                     <connections>
                         <outlet property="className" destination="6IS-pC-wjJ" id="2Om-J5-dqt"/>
                         <outlet property="classNameFinal" destination="zNk-uG-MuO" id="ry1-94-Uu4"/>
@@ -432,7 +432,7 @@
             </objects>
             <point key="canvasLocation" x="749" y="815"/>
         </scene>
-        <!--Second-->
+        <!--Class Statistics-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -440,32 +440,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Classroom Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6py-vw-0RO">
-                                <rect key="frame" x="226" y="74" width="573" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CLASS STATISTICS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6py-vw-0RO">
+                                <rect key="frame" x="232" y="74" width="560" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="67"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGD-NP-YId">
-                                <rect key="frame" x="850" y="84" width="113" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="EXPORT"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PICK CLASS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cN-UA-yog">
-                                <rect key="frame" x="37" y="40" width="164" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFC-TL-3Za">
-                                <rect key="frame" x="77" y="106" width="86" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsP-v6-icw">
                                 <rect key="frame" x="20" y="256" width="226" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -494,11 +475,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGD-NP-YId">
+                                <rect key="frame" x="20" y="90" width="113" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="EXPORT"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Class Statistics" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -587,7 +574,7 @@
             </objects>
             <point key="canvasLocation" x="1562" y="106"/>
         </scene>
-        <!--Item-->
+        <!--Count Participation-->
         <scene sceneID="aba-Vt-G9S">
             <objects>
                 <viewController id="hdc-IM-OGl" customClass="EditClassViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -646,13 +633,6 @@
                                     <outlet property="delegate" destination="hdc-IM-OGl" id="MZd-8N-uJG"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count Participation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mea-hN-ial">
-                                <rect key="frame" x="186" y="78" width="668" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="84"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeH-SB-xkz">
                                 <rect key="frame" x="862" y="20" width="142" height="85"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -661,11 +641,18 @@
                                     <outlet property="delegate" destination="hdc-IM-OGl" id="GyX-up-OKe"/>
                                 </connections>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COUNT PARTICIPATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mea-hN-ial">
+                                <rect key="frame" x="164" y="56" width="697" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="67"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="amQ-g7-5a4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="dzu-fo-Iwd"/>
+                    <tabBarItem key="tabBarItem" title="Count Participation" id="dzu-fo-Iwd"/>
                     <connections>
                         <outlet property="ClassPicker" destination="OeH-SB-xkz" id="J5B-8R-7jL"/>
                         <outlet property="collection" destination="DwM-v9-WOZ" id="SRc-zx-ZYx"/>
@@ -686,10 +673,10 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="hdc-IM-OGl" kind="relationship" relationship="viewControllers" id="cAa-CY-f4n"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Zhb-J1-kCN" kind="relationship" relationship="viewControllers" id="26L-XS-nWg"/>
-                        <segue destination="hdc-IM-OGl" kind="relationship" relationship="viewControllers" id="cAa-CY-f4n"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -702,6 +689,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sla-xH-rxV"/>
+        <segue reference="26L-XS-nWg"/>
     </inferredMetricsTieBreakers>
 </document>
