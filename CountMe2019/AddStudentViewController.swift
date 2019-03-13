@@ -18,6 +18,7 @@ class AddStudentViewController: UIViewController {
         var last = String(lName.text!)
         var stud = Student(first, last)
         classesArray[classP].addStudent(stud)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         dismiss(animated: true)
     }
     
