@@ -11,7 +11,8 @@ import UIKit
 class DeleteClassViewController: UIViewController {
 
     @IBAction func yesDelete(_ sender: UIButton) {
-        classesArray.remove(at: 0)
+        classesArray.remove(at: classP)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         dismiss(animated: true)
     }
     
