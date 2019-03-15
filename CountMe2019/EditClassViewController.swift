@@ -19,6 +19,11 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
+        let tempClass = ClassroomPersistentData.init(0, "")
+        tempClass.restore(fileName: "class")
+        let tempStudent = PersistentData.init("", "")
+        tempStudent.restore(fileName: "student")
+        SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
         collection.reloadData()
         /*if(classesArray.count == 0)
          {
@@ -34,6 +39,11 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidAppear(true)
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
+        let tempClass = ClassroomPersistentData.init(0, "")
+        tempClass.restore(fileName: "class")
+        let tempStudent = PersistentData.init("", "")
+        tempStudent.restore(fileName: "student")
+        SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
         collection.reloadData()
         /*if(classesArray.count == 0)
          {
@@ -45,8 +55,16 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
 
-    // COLLECTION VIEW FUNCTIONS
-    
+   
+    @IBOutlet weak var SelectDateButtonOutlet: UIButton!
+    @IBAction func SelectDateButton(_ sender: Any) {
+        let popOverVc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUp") as! DatePopUpViewController
+        self.addChild(popOverVc)
+        popOverVc.view.frame = self.view.frame
+        self.view.addSubview(popOverVc.view)
+        popOverVc.didMove(toParent: self)
+    }
+     // COLLECTION VIEW FUNCTIONS
     // number of cells displayed
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(classesArray.count != 0) {

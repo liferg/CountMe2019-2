@@ -13,13 +13,13 @@ class PersistentData: Codable {
     var firstName: String
     var lastName: String
     var count: Int
-    var studentParticipation = [String: Int]()
+    var studentParticipation = [Date: Int]()
     
-    init() {
-        firstName = ""
-        lastName = ""
+    init(_ fn: String, _ ln: String) {
+        firstName = fn
+        lastName = ln
         count = 0
-        studentParticipation = ["": 0]
+        studentParticipation = [date: 0]
     }
     // ********** You should not have to change ANYTHING in "func archive()" to use *************
     /**

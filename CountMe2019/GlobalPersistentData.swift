@@ -1,30 +1,24 @@
 //
-//  ClassroomPersistentData.swift
+//  GlobalPersistentData.swift
 //  CountMe2019
 //
-//  Created by Uma Parhar on 2/14/19.
+//  Created by Uma Parhar on 3/14/19.
 //  Copyright © 2019 District196.org. All rights reserved.
 //
 
 import Foundation
 import os.log
 
-// **** Replace "PersistentData" with the name of your class object to be persistent ***
-class ClassroomPersistentData: Codable {
-    // **** These are all the Properties of the object to be persistent. ****
-    // **** Every Property must be "Codable".                            ****
-    var classPeriod: Int
-    var className: String
-    var classList = [PersistentData]()
+class GlobalPersistentData: Codable {
+    var classesArray = [ClassroomPersistentData]()
+    var classP: Int = 0
+    var student = PersistentData("", "")
     
-    // **** The initializer ("constructor" in Java terms) gives the persistent object its initial values ****
-    // **** before it is restored from an archived value. Every Property must have an initial value. ****
-    init(_ cp: Int, _ cn: String) {
-        classPeriod = cp
-        className = cn
-        classList = [PersistentData]()
+    init() {
+        classesArray = [ClassroomPersistentData]()
+        classP = 0
+        student = PersistentData("", "")
     }
-    
     // ********** You should not have to change ANYTHING in "func archive()" to use *************
     /**
      * Archive this PersistentData object
@@ -58,12 +52,12 @@ class ClassroomPersistentData: Codable {
         if let recoveredDataCoded = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? Data {
             do {
                 // *** Replace "PersistentData" on the next line with the name of the class to be persistent. ***
-                let recoveredData = try PropertyListDecoder().decode(ClassroomPersistentData.self, from: recoveredDataCoded)
+                let recoveredData = try PropertyListDecoder().decode(GlobalPersistentData.self, from: recoveredDataCoded)
                 os_log("Data successfully recovered from file.", log: OSLog.default, type: .debug)
                 // *** Replace all the assignment statements BELOW to "restore" all properties of the object ***
-                classPeriod = recoveredData.classPeriod
-                className = recoveredData.className
-                classList = recoveredData.classList
+                classesArray = recoveredData.classesArray
+                classP = recoveredData.classP
+                student = recoveredData.student
                 // *** Replace all the assignment statements ABOVE to "restore" all properties of the object ***
             } catch {
                 os_log("Failed to recover data", log: OSLog.default, type: .error)
@@ -72,5 +66,4 @@ class ClassroomPersistentData: Codable {
             os_log("Failed to recover data", log: OSLog.default, type: .error)
         }
     }
-    
 }

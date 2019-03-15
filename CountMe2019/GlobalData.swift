@@ -12,4 +12,11 @@ import Foundation
 var classesArray = [Classroom]()
 // index changed across view controllers 
 var classP: Int = 0
+var student = PersistentData("", "")
+let date = Date()
+let calendar = Calendar.current
+let day = calendar.component(.day, from: date)
+let month = calendar.component(.month, from: date)
+let year = calendar.component(.year, from: date)
+var currentDate = "Select Date"
 

@@ -10,9 +10,6 @@ import UIKit
 
 class CreateClassViewController: UIViewController{
 
-    // persistent data testing
-    var persistentStudent = PersistentData()
-    var persistentClassroom = ClassroomPersistentData()
 
     // outlets
     @IBOutlet weak var period: UITextField!
@@ -29,8 +26,6 @@ class CreateClassViewController: UIViewController{
     // loading functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        persistentStudent.restore(fileName: "test1")
-        persistentClassroom.restore(fileName: "test2")
         // Do any additional setup after loading the view.
     }
     
