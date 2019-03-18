@@ -14,6 +14,30 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var editClassTableView: UITableView!
     @IBOutlet weak var editClassPickerView: UIPickerView!
     
+    // loading functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.editClassPickerView.delegate = self
+        self.editClassPickerView.dataSource = self
+        editClassTableView.reloadData()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.editClassPickerView.delegate = self
+        self.editClassPickerView.dataSource = self
+        editClassTableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    //reload from popups
+    
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        editClassTableView.reloadData()
+    }
+    
+    
     // TABLE VIEW FUNCTIONS
     
     // number of rows
@@ -64,30 +88,6 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         classP = row
         editClassTableView.reloadData()
     }
-    
-    //reload from popups
-    
-    @objc func loadList(notification: NSNotification){
-        //load data here
-        editClassTableView.reloadData()
-    }
-    
-    // loading functions
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.editClassPickerView.delegate = self
-        self.editClassPickerView.dataSource = self
-        editClassTableView.reloadData()
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.editClassPickerView.delegate = self
-        self.editClassPickerView.dataSource = self
-        editClassTableView.reloadData()
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
 }
 
 

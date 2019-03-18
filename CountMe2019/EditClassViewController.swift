@@ -64,7 +64,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         self.view.addSubview(popOverVc.view)
         popOverVc.didMove(toParent: self)
     }
-     // COLLECTION VIEW FUNCTIONS
+    // COLLECTION VIEW FUNCTIONS
     // number of cells displayed
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(classesArray.count != 0) {

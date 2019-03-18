@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491E7E0A223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E7E09223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift */; };
 		49CF5F9F21DFE74F0065B33A /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF5F9E21DFE74F0065B33A /* GlobalData.swift */; };
 		49CF5FA121E795B70065B33A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF5FA021E795B70065B33A /* CollectionViewCell.swift */; };
 		7BE401A421DD213000D0F8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401A321DD213000D0F8E7 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		491E7E09223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomStatsTableViewCell.swift; sourceTree = "<group>"; };
 		49CF5F9E21DFE74F0065B33A /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		49CF5FA021E795B70065B33A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7BE401A021DD213000D0F8E7 /* CountMe2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountMe2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				E053181D223AACEB00CE0A28 /* GlobalPersistentData.swift */,
 				7BE401A521DD213000D0F8E7 /* CountParticipationViewController.swift */,
 				7BE401A721DD213000D0F8E7 /* ClassroomStatsViewController.swift */,
+				491E7E09223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift */,
 				E0D7525421DFC35B00394DAA /* EditClassViewController.swift */,
 				49CF5FA021E795B70065B33A /* CollectionViewCell.swift */,
 				E0D7525221DFC25A00394DAA /* CreateClassViewController.swift */,
@@ -298,6 +301,7 @@
 				E0D7521521DE749F00394DAA /* Classroom.swift in Sources */,
 				E0D7525521DFC35B00394DAA /* EditClassViewController.swift in Sources */,
 				E00FB15A2214A0A30016CE2A /* PersistentData.swift in Sources */,
+				491E7E0A223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift in Sources */,
 				49CF5FA121E795B70065B33A /* CollectionViewCell.swift in Sources */,
 				E00FB15E2215D2EC0016CE2A /* ClassroomPersistentData.swift in Sources */,
 				7BE401A821DD213000D0F8E7 /* ClassroomStatsViewController.swift in Sources */,
