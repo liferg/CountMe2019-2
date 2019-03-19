@@ -24,7 +24,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         let tempStudent = PersistentData.init("", "")
         tempStudent.restore(fileName: "student")
         SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
-        collection.reloadData()
         /*if(classesArray.count == 0)
          {
          performSegue(withIdentifier: "toEdit", sender: self)
