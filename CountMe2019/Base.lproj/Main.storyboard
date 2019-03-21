@@ -37,6 +37,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="984" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7LM-Nf-jXR" kind="presentation" identifier="editStudentSegue" id="1PD-0B-p69"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -584,10 +587,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="105.85651537335285"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Student View Controller-->
         <scene sceneID="e0S-h6-ssh">
             <objects>
-                <viewController id="7LM-Nf-jXR" sceneMemberID="viewController">
+                <viewController id="7LM-Nf-jXR" customClass="EditStudentViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E22-bt-0mJ">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -629,6 +632,9 @@
                                         <rect key="frame" x="280" y="476" width="137" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submit:" destination="7LM-Nf-jXR" eventType="touchUpInside" id="DQ1-HC-djv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -662,10 +668,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dPY-HF-3TW"/>
                     </view>
+                    <connections>
+                        <outlet property="firstName" destination="hQE-gx-N5r" id="7XY-hH-Vbf"/>
+                        <outlet property="lastName" destination="CdC-hL-M1M" id="dEv-hE-xRk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKO-BM-xCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1562" y="106"/>
+            <point key="canvasLocation" x="1561.5234375" y="105.85651537335285"/>
         </scene>
         <!--Count Participation-->
         <scene sceneID="aba-Vt-G9S">

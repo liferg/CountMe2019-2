@@ -8,6 +8,8 @@
 
 import UIKit
 
+var studentIndex = 0
+
 class CountParticipationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // outlets
@@ -69,6 +71,13 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         
         return [delete]
     }
+    
+    //Edit student popup
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        studentIndex = indexPath.row
+        performSegue(withIdentifier: "editStudentSegue", sender: self)
+    }
+    
     // PICKER VIEW FUNCTIONS
     
     // components of pickerview
