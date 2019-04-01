@@ -42,8 +42,47 @@ class DatePopUpViewController: UIViewController {
     
     @IBAction func DonePopUp(_ sender: Any) {
         self.removeAnimate()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         currentDate = DateTextField.text ?? ""
-        print(currentDate)
+        var check: Bool = true
+        /* for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+         {
+         if(classesArray[classP].classList[i].studentParticipation[currentDate] = nil)
+         {
+         check == false
+         }
+         }
+         */
+        /* for i in stride(from: 0, to: classesArray[classP].classList[0].studentParticipation.count, by:1)
+         {
+         if(classesArray[classP].classList[0].studentParticipation[i] = currentDate)
+         {
+         check = false
+         }
+         }
+         
+         if(check == true)
+         {
+         */
+        if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
+        {
+            for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+            {
+                classesArray[classP].classList[i].count = 0
+            }
+            
+            for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+            {
+                let y = classesArray[classP].classList[i].count
+                // classesArray[classP].classList[i].studentParticipation = [:]
+                classesArray[classP].classList[i].studentParticipation[currentDate] = y
+                print(classesArray[classP].classList[0].studentParticipation[currentDate] ?? 1)
+                
+                //classesArray[classP].classList[i].studentParticipation[classesArray[classP].classList[i].studentParticipation.count] = [currentDate : y]
+            }
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
     }
     
     func showAnimate()
@@ -69,17 +108,18 @@ class DatePopUpViewController: UIViewController {
     }
     
     
-
     
-
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
 }

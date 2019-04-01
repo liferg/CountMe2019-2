@@ -24,6 +24,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         let tempStudent = PersistentData.init("", "")
         tempStudent.restore(fileName: "student")
         SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         /*if(classesArray.count == 0)
          {
          performSegue(withIdentifier: "toEdit", sender: self)
@@ -33,6 +34,10 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // Do any additional setup after loading the view.
         
+    }
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -53,9 +58,10 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         // Do any additional setup after loading the view.
         
     }
-
-   
+    
+    
     @IBOutlet weak var SelectDateButtonOutlet: UIButton!
+    
     @IBAction func SelectDateButton(_ sender: Any) {
         let popOverVc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUp") as! DatePopUpViewController
         self.addChild(popOverVc)
