@@ -9,7 +9,27 @@
 import UIKit
 
 class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    private var datePicker: UIDatePicker?
+    private var datePicker2: UIDatePicker?
+    @IBOutlet weak var StartDateText: UITextField!
     
+    @IBOutlet weak var EndDateText: UITextField!
+    @objc func dateChanged(datePicker: UIDatePicker)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        StartDateText.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
+    }
+    @objc func dateChanged(datePicker2: UIDatePicker)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        EndDateText.text = dateFormatter.string(from: datePicker2.date)
+        view.endEditing(true)
+    }
     // outlets
     @IBOutlet weak var classroomStatsTableView: UITableView!
     @IBOutlet weak var ClassPicker: UIPickerView!
@@ -21,6 +41,17 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         self.ClassPicker.dataSource = self
         classroomStatsTableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
+        //datePicker
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(ClassroomStatsViewController.dateChanged(datePicker:)), for: .valueChanged)
+        StartDateText.inputView = datePicker
+        //datePicker2
+        datePicker2 = UIDatePicker()
+        datePicker2?.datePickerMode = .date
+        datePicker2?.addTarget(self, action: #selector(ClassroomStatsViewController.dateChanged(datePicker2:)), for: .valueChanged)
+        EndDateText.inputView = datePicker2
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

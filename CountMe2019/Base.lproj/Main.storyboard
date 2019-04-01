@@ -573,20 +573,20 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="ZkW-KE-0TH"/>
                                 </connections>
                             </pickerView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7sR-yu-Xsz">
-                                <rect key="frame" x="280" y="250" width="225" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="575825667.55244803">
-                                    <!--2019-04-01 15:34:27 +0000-->
-                                </date>
-                            </datePicker>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-DK-Jff">
-                                <rect key="frame" x="779" y="250" width="225" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="575825693.78931701">
-                                    <!--2019-04-01 15:34:53 +0000-->
-                                </date>
-                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fec-02-Cbx">
+                                <rect key="frame" x="262" y="271" width="228" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KD7-uh-zld">
+                                <rect key="frame" x="771" y="271" width="201" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
@@ -594,6 +594,8 @@
                     <tabBarItem key="tabBarItem" title="Class Statistics" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="ClassPicker" destination="tFP-4H-fVv" id="fEg-8Z-N5j"/>
+                        <outlet property="EndDateText" destination="KD7-uh-zld" id="Pep-Zd-0pQ"/>
+                        <outlet property="StartDateText" destination="fec-02-Cbx" id="lXg-Bg-Kn7"/>
                         <outlet property="classroomStatsTableView" destination="AuL-oS-Q0n" id="qID-Up-YRE"/>
                     </connections>
                 </viewController>
