@@ -13,6 +13,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     // outlets
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var ClassPicker: UIPickerView!
+    @IBOutlet weak var SelectDateButtonOutlet: UIButton!
     
     // loading functions
     override func viewDidLoad() {
@@ -30,8 +31,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
          performSegue(withIdentifier: "toEdit", sender: self)
          }
          */
-        
-        
         // Do any additional setup after loading the view.
         
     }
@@ -39,6 +38,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         //load data here
         SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         self.ClassPicker.delegate = self
@@ -58,9 +58,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         // Do any additional setup after loading the view.
         
     }
-    
-    
-    @IBOutlet weak var SelectDateButtonOutlet: UIButton!
     
     @IBAction func SelectDateButton(_ sender: Any) {
         let popOverVc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUp") as! DatePopUpViewController
