@@ -22,6 +22,8 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         self.editClassPickerView.delegate = self
         self.editClassPickerView.dataSource = self
         editClassTableView.reloadData()
+        editClassPickerView.selectRow(classP, inComponent: 0, animated: true)
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +31,11 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         self.editClassPickerView.dataSource = self
         editClassTableView.reloadData()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        editClassPickerView.selectRow(classP, inComponent: 0, animated: true)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     //reload from popups
-    
     @objc func loadList(notification: NSNotification){
         //load data here
         editClassTableView.reloadData()
@@ -90,7 +92,7 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
     }
     // title of row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return classesArray[row].className
+        return classesArray[row].className + " - " + String(classesArray[row].classPeriod)
     }
     // what it will do when you select or scroll to a row
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

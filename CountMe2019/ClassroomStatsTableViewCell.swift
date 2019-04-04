@@ -10,7 +10,6 @@ import UIKit
 
 class ClassroomStatsTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var studentCountLabel: UILabel!
     
     override func awakeFromNib() {

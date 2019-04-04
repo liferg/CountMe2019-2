@@ -9,27 +9,7 @@
 import UIKit
 
 class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
-    private var datePicker: UIDatePicker?
-    private var datePicker2: UIDatePicker?
-    @IBOutlet weak var StartDateText: UITextField!
     
-    @IBOutlet weak var EndDateText: UITextField!
-    @objc func dateChanged(datePicker: UIDatePicker)
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        
-        StartDateText.text = dateFormatter.string(from: datePicker.date)
-        view.endEditing(true)
-    }
-    @objc func dateChanged(datePicker2: UIDatePicker)
-    {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        
-        EndDateText.text = dateFormatter.string(from: datePicker2.date)
-        view.endEditing(true)
-    }
     // outlets
     @IBOutlet weak var classroomStatsTableView: UITableView!
     @IBOutlet weak var ClassPicker: UIPickerView!
@@ -40,6 +20,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
         classroomStatsTableView.reloadData()
+        ClassPicker.selectRow(classP, inComponent: 0, animated: true)
         // Do any additional setup after loading the view, typically from a nib.
         //datePicker
         datePicker = UIDatePicker()
@@ -58,6 +39,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
         classroomStatsTableView.reloadData()
+        ClassPicker.selectRow(classP, inComponent: 0, animated: true)
     }
     
     // TABLE VIEW FUNCTIONS
@@ -80,6 +62,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         let classStatsCell = tableView.dequeueReusableCell(withIdentifier: "classStatsCell", for: indexPath) as! ClassroomStatsTableViewCell
         let name = classesArray[classP].classList[indexPath.row]
         classStatsCell.textLabel?.text = name.firstName + " " + name.lastName
+        classStatsCell.studentCountLabel.text = String(0)
         if (classesArray[classP].classList[indexPath.row].count != 0)
         {
             let count = classesArray[classP].classList[indexPath.row].count
@@ -100,7 +83,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
     }
     // title of row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return classesArray[row].className
+        return classesArray[row].className + " - " + String(classesArray[row].classPeriod)
     }
     // what it will do when you select or scroll to a row
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -108,7 +91,29 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         classroomStatsTableView.reloadData()
     }
     
-
+    // DATE PICKER FUNCTIONS
+    
+    private var datePicker: UIDatePicker?
+    private var datePicker2: UIDatePicker?
+    @IBOutlet weak var StartDateText: UITextField!
+    
+    @IBOutlet weak var EndDateText: UITextField!
+    @objc func dateChanged(datePicker: UIDatePicker)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        StartDateText.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
+    }
+    @objc func dateChanged(datePicker2: UIDatePicker)
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        EndDateText.text = dateFormatter.string(from: datePicker2.date)
+        view.endEditing(true)
+    }
 
 
 }
