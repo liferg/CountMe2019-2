@@ -45,7 +45,7 @@ class DatePopUpViewController: UIViewController {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         currentDate = DateTextField.text ?? ""
         var check: Bool = true
-        /* for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+        /*for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
          {
          if(classesArray[classP].classList[i].studentParticipation[currentDate] = nil)
          {
@@ -53,9 +53,9 @@ class DatePopUpViewController: UIViewController {
          }
          }
          */
-        /* for i in stride(from: 0, to: classesArray[classP].classList[0].studentParticipation.count, by:1)
+        /*for i in stride(from: 0, to: classesArray[classP].classList[0].studentParticipation.count, by:1)
          {
-         if(classesArray[classP].classList[0].studentParticipation[i] = currentDate)
+         if(classesArray[classP].classList[0].studentParticipation[i] == currentDate)
          {
          check = false
          }
@@ -64,21 +64,23 @@ class DatePopUpViewController: UIViewController {
          if(check == true)
          {
          */
-        if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
+        for (Date, numbers) in classesArray[classP].classList[0].studentParticipation
         {
-            for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+            if Date == currentDate
             {
-                classesArray[classP].classList[i].count = 0
+                check = false
             }
-            
-            for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+        }
+        if(check == true)
+        {
+            if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
             {
-                let y = classesArray[classP].classList[i].count
-                // classesArray[classP].classList[i].studentParticipation = [:]
-                classesArray[classP].classList[i].studentParticipation[currentDate] = y
-                print(classesArray[classP].classList[0].studentParticipation[currentDate] ?? 1)
-                
-                //classesArray[classP].classList[i].studentParticipation[classesArray[classP].classList[i].studentParticipation.count] = [currentDate : y]
+                for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+                {
+                    classesArray[classP].classList[i].studentParticipation.updateValue(0, forKey: currentDate)
+                    
+                    //classesArray[classP].classList[i].studentParticipation[classesArray[classP].classList[i].studentParticipation.count] = [currentDate : y]
+                }
             }
         }
         

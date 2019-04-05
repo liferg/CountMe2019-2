@@ -26,7 +26,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         tempStudent.restore(fileName: "student")
         SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        ClassPicker.selectRow(classP, inComponent: 0, animated: true)
         /*if(classesArray.count == 0)
          {
          performSegue(withIdentifier: "toEdit", sender: self)
@@ -50,7 +49,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         tempStudent.restore(fileName: "student")
         SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
         collection.reloadData()
-        ClassPicker.selectRow(classP, inComponent: 0, animated: true)
         /*if(classesArray.count == 0)
          {
          performSegue(withIdentifier: "toEdit", sender: self)
@@ -99,7 +97,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         let countInt = classesArray[classP].classList[indexPath.row].count
         let countString = String(countInt)
         cell.StudentCountButton.setTitle(countString, for: .normal)
-        if (classesArray[classP].classList[indexPath.row].count > 0)
+        if (classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] ?? 0 > 0)
         {
             cell.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
         }
@@ -123,7 +121,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     // title of row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        return classesArray[row].className + " - " + String(classesArray[row].classPeriod)
+        return classesArray[row].className
     }
     // what it will do when you select or scroll to a row
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
