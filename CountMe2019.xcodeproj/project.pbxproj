@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		491E7E0A223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E7E09223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift */; };
+		4940C4BD225BA026005D52D4 /* CountParticipationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4940C4BC225BA026005D52D4 /* CountParticipationTableViewCell.swift */; };
 		49CF5F9F21DFE74F0065B33A /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF5F9E21DFE74F0065B33A /* GlobalData.swift */; };
 		49CF5FA121E795B70065B33A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF5FA021E795B70065B33A /* CollectionViewCell.swift */; };
 		7BE401A421DD213000D0F8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE401A321DD213000D0F8E7 /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		491E7E09223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomStatsTableViewCell.swift; sourceTree = "<group>"; };
+		4940C4BC225BA026005D52D4 /* CountParticipationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountParticipationTableViewCell.swift; sourceTree = "<group>"; };
 		49CF5F9E21DFE74F0065B33A /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		49CF5FA021E795B70065B33A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		7BE401A021DD213000D0F8E7 /* CountMe2019.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountMe2019.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				49CF5F9E21DFE74F0065B33A /* GlobalData.swift */,
 				E053181D223AACEB00CE0A28 /* GlobalPersistentData.swift */,
 				7BE401A521DD213000D0F8E7 /* CountParticipationViewController.swift */,
+				4940C4BC225BA026005D52D4 /* CountParticipationTableViewCell.swift */,
 				7BE401A721DD213000D0F8E7 /* ClassroomStatsViewController.swift */,
 				491E7E09223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift */,
 				E0D7525421DFC35B00394DAA /* EditClassViewController.swift */,
@@ -312,6 +315,7 @@
 				7BE401A621DD213000D0F8E7 /* CountParticipationViewController.swift in Sources */,
 				E0531820223BF38F00CE0A28 /* DatePopUpViewController.swift in Sources */,
 				E0D7521321DE749700394DAA /* Student.swift in Sources */,
+				4940C4BD225BA026005D52D4 /* CountParticipationTableViewCell.swift in Sources */,
 				893919DB2243E62700F3DF40 /* EditStudentViewController.swift in Sources */,
 				49CF5F9F21DFE74F0065B33A /* GlobalData.swift in Sources */,
 				895C5A91222EF35C00FB4DED /* DeleteClassViewController.swift in Sources */,
