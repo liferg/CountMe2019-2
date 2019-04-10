@@ -24,7 +24,14 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         tempClass.restore(fileName: "class")
         let tempStudent = PersistentData.init("", "")
         tempStudent.restore(fileName: "student")
-        SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        if(currentDate != "")
+        {
+            SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        }
+        else
+        {
+            SelectDateButtonOutlet.setTitle("Select Date", for: .normal)
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         /*if(classesArray.count == 0)
          {
@@ -36,7 +43,14 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     @objc func loadList(notification: NSNotification){
         //load data here
-        SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        if(currentDate != "")
+        {
+            SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        }
+        else
+        {
+            SelectDateButtonOutlet.setTitle("Select Date", for: .normal)
+        }
         collection.reloadData()
     }
     
