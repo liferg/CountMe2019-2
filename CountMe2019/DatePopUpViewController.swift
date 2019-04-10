@@ -42,9 +42,9 @@ class DatePopUpViewController: UIViewController {
     
     @IBAction func DonePopUp(_ sender: Any) {
         self.removeAnimate()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         currentDate = DateTextField.text ?? ""
         var check: Bool = true
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         /*for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
          {
          if(classesArray[classP].classList[i].studentParticipation[currentDate] = nil)

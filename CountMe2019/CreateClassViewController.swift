@@ -8,8 +8,10 @@
 
 import UIKit
 
+
 class CreateClassViewController: UIViewController{
 
+    
 
     // outlets
     @IBOutlet weak var period: UITextField!
@@ -93,6 +95,8 @@ class CreateClassViewController: UIViewController{
         nameCheck = ""
         newClassCheck = 0
     }
+    
+    
     /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation

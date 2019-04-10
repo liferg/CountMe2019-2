@@ -37,6 +37,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     @objc func loadList(notification: NSNotification){
         //load data here
         SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        collection.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -94,7 +95,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.StudentCountButton.setTitle("", for: .normal)
         
         // cell color and count is refreshed
-        let countInt = classesArray[classP].classList[indexPath.row].count
+        let countInt = classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] ?? 0
         let countString = String(countInt)
         cell.StudentCountButton.setTitle(countString, for: .normal)
         if (classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] ?? 0 > 0)
