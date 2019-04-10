@@ -62,7 +62,14 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         tempClass.restore(fileName: "class")
         let tempStudent = PersistentData.init("", "")
         tempStudent.restore(fileName: "student")
-        SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        if(currentDate != "")
+        {
+            SelectDateButtonOutlet.setTitle(currentDate, for: .normal)
+        }
+        else
+        {
+            SelectDateButtonOutlet.setTitle("Select Date", for: .normal)
+        }
         collection.reloadData()
         /*if(classesArray.count == 0)
          {

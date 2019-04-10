@@ -19,8 +19,10 @@ class DatePopUpViewController: UIViewController {
         datePicker?.addTarget(self, action: #selector(DatePopUpViewController.dateChanged(datePicker:)), for: .valueChanged)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DatePopUpViewController.viewTapped(gestureRecognizer:)))
+ 
         
         view.addGestureRecognizer(tapGesture)
+ 
         DateTextField.inputView = datePicker
         // Do any additional setup after loading the view.
     }
@@ -29,6 +31,7 @@ class DatePopUpViewController: UIViewController {
     {
         view.endEditing(true)
     }
+ 
     
     @IBOutlet weak var DateTextField: UITextField!
     @objc func dateChanged(datePicker: UIDatePicker)
@@ -64,12 +67,15 @@ class DatePopUpViewController: UIViewController {
          if(check == true)
          {
          */
-        for (Date, numbers) in classesArray[classP].classList[0].studentParticipation
+       for i in stride(from: 0, to: classesArray.count, by: 1)
+       {
+        for (Date, numbers) in classesArray[i].classList[0].studentParticipation
         {
             if Date == currentDate
             {
                 check = false
             }
+        }
         }
         if(check == true)
         {
