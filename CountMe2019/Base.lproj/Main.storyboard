@@ -128,7 +128,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Ayt-6m-Gq3"/>
                     </view>
                     <connections>
@@ -799,6 +799,7 @@
                         <outlet property="SelectDateButtonOutlet" destination="qNN-Fm-dpX" id="kRi-Dp-TsZ"/>
                         <outlet property="collection" destination="DwM-v9-WOZ" id="SRc-zx-ZYx"/>
                         <segue destination="Zhb-J1-kCN" kind="show" identifier="toEdit" id="Sla-xH-rxV"/>
+                        <segue destination="FhI-WG-ygf" kind="presentation" identifier="pickDate" modalPresentationStyle="overCurrentContext" id="YxC-dR-XHd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4l-d6-wCr" userLabel="First Responder" sceneMemberID="firstResponder"/>

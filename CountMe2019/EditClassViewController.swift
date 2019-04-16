@@ -33,11 +33,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
             SelectDateButtonOutlet.setTitle("Select Date", for: .normal)
         }
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
-        /*if(classesArray.count == 0)
-         {
-         performSegue(withIdentifier: "toEdit", sender: self)
-         }
-         */
         // Do any additional setup after loading the view.
         
     }
@@ -82,12 +77,9 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     @IBAction func SelectDateButton(_ sender: Any) {
-        let popOverVc = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "DatePopUp") as! DatePopUpViewController
-        self.addChild(popOverVc)
-        popOverVc.view.frame = self.view.frame
-        self.view.addSubview(popOverVc.view)
-        popOverVc.didMove(toParent: self)
+        performSegue(withIdentifier: "pickDate", sender: self)
     }
+    
     // COLLECTION VIEW FUNCTIONS
     // number of cells displayed
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

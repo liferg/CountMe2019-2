@@ -13,15 +13,9 @@ class DatePopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.showAnimate()
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(DatePopUpViewController.dateChanged(datePicker:)), for: .valueChanged)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(DatePopUpViewController.viewTapped(gestureRecognizer:)))
- 
-        
-        view.addGestureRecognizer(tapGesture)
  
         DateTextField.inputView = datePicker
         // Do any additional setup after loading the view.
@@ -44,7 +38,6 @@ class DatePopUpViewController: UIViewController {
     }
     
     @IBAction func DonePopUp(_ sender: Any) {
-        self.removeAnimate()
         currentDate = DateTextField.text ?? ""
         var check: Bool = true
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -91,33 +84,8 @@ class DatePopUpViewController: UIViewController {
         }
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        dismiss(animated: true)
     }
-    
-    func showAnimate()
-    {
-        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.view.alpha = 0.0;
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.alpha = 1.0
-            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        });
-    }
-    func removeAnimate()
-    {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            self.view.alpha = 0.0;
-        }, completion:{(finished : Bool) in
-            if(finished)
-            {
-                self.view.removeFromSuperview()
-            }
-        });
-    }
-    
-    
-    
-    
     
     /*
      // MARK: - Navigation
