@@ -77,7 +77,10 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     @IBAction func SelectDateButton(_ sender: Any) {
-        performSegue(withIdentifier: "pickDate", sender: self)
+        
+            performSegue(withIdentifier: "pickDate", sender: self)
+
+        
     }
     
     // COLLECTION VIEW FUNCTIONS

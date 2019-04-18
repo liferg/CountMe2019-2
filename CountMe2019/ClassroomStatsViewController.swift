@@ -62,7 +62,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         let classStatsCell = tableView.dequeueReusableCell(withIdentifier: "classStatsCell", for: indexPath) as! ClassroomStatsTableViewCell
         let name = classesArray[classP].classList[indexPath.row]
         classStatsCell.textLabel?.text = name.firstName + " " + name.lastName
-        classStatsCell.studentCountLabel.text = String(0)
+        classStatsCell.studentCountLabel.text = String(classesArray[classP].classList[indexPath.row].count)
         if (classesArray[classP].classList[indexPath.row].count != 0)
         {
             let count = classesArray[classP].classList[indexPath.row].count
