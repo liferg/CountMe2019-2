@@ -58,19 +58,19 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // let classStatsCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "classStatsCell") as! ClassroomStatsTableViewCell
-
+        
         let classStatsCell = tableView.dequeueReusableCell(withIdentifier: "classStatsCell", for: indexPath) as! ClassroomStatsTableViewCell
         let name = classesArray[classP].classList[indexPath.row]
         classStatsCell.textLabel?.text = name.firstName + " " + name.lastName
-        classStatsCell.studentCountLabel.text = String(classesArray[classP].classList[indexPath.row].count)
-        if (classesArray[classP].classList[indexPath.row].count != 0)
+        classStatsCell.studentCountLabel.text = String(0)
+        if (classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] != 0)
         {
-            let count = classesArray[classP].classList[indexPath.row].count
-            classStatsCell.studentCountLabel.text = String(count)
+            let count = classesArray[classP].classList[indexPath.row].studentParticipation[currentDate]
+            classStatsCell.studentCountLabel.text = String(count ?? 0)
         }
         return(classStatsCell)
     }
-
+    
     // PICKER VIEW FUNCTIONS
     
     // components of pickerview
@@ -114,6 +114,6 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         EndDateText.text = dateFormatter.string(from: datePicker2.date)
         view.endEditing(true)
     }
-
-
+    
+    
 }

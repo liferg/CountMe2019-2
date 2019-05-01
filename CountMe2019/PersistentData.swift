@@ -19,7 +19,7 @@ class PersistentData: Codable {
         firstName = fn
         lastName = ln
         count = 0
-        studentParticipation = [date: 0]
+        studentParticipation = [Date(): 0]
     }
     // ********** You should not have to change ANYTHING in "func archive()" to use *************
     /**

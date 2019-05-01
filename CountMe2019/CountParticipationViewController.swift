@@ -23,7 +23,7 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
         self.editClassPickerView.dataSource = self
         editClassTableView.reloadData()
         editClassPickerView.selectRow(classP, inComponent: 0, animated: true)
-
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +102,3 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
     
     
 }
-
-
-

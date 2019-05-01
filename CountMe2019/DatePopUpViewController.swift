@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class DatePopUpViewController: UIViewController {
     private var datePicker: UIDatePicker?
     override func viewDidLoad() {
@@ -16,16 +15,22 @@ class DatePopUpViewController: UIViewController {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(DatePopUpViewController.dateChanged(datePicker:)), for: .valueChanged)
- 
-        DateTextField.inputView = datePicker
-        // Do any additional setup after loading the view.
+        DateTextField.text = String(describing: currentDate)
+        if datePicker == nil
+        {
+            DateTextField.text = String(describing: currentDate)
+        }
+        else
+        {
+            DateTextField.inputView = datePicker
+        }
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer)
     {
         view.endEditing(true)
     }
- 
+    
     
     @IBOutlet weak var DateTextField: UITextField!
     @objc func dateChanged(datePicker: UIDatePicker)
@@ -38,7 +43,7 @@ class DatePopUpViewController: UIViewController {
     }
     
     @IBAction func DonePopUp(_ sender: Any) {
-        currentDate = DateTextField.text ?? ""
+        //currentDate = DateTextField.text ?? ""
         var check: Bool = true
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         /*for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
@@ -60,17 +65,15 @@ class DatePopUpViewController: UIViewController {
          if(check == true)
          {
          */
-       for i in stride(from: 0, to: classesArray.count, by: 1)
-       {
-        for (Date, numbers) in classesArray[i].classList[0].studentParticipation
+        for (date1, numbers) in classesArray[0].classList[0].studentParticipation
         {
-            if Date == currentDate
+            check =  Calendar.current.isDateInToday(date1)
+            if check
             {
-                check = false
+                return
             }
         }
-        }
-        if(check == true)
+        if(check == false)
         {
             if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
             {

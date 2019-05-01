@@ -19,25 +19,15 @@ class CollectionViewCell: UICollectionViewCell {
     
     // when cell is selected
     @IBAction func StudentButtonAction(_ sender: Any) {
-        if(currentDate != "Select Date")
+        // increments the count of selected student
+        
+        // immediately displays the change in count / color
+        var x: Int = (classesArray[classP].classList[index].studentParticipation[currentDate]! + 1)
+        classesArray[classP].classList[index].studentParticipation[currentDate] = x
+        self.StudentCountButton.setTitle(String(x), for: .normal)
+        if (classesArray[classP].classList[index].studentParticipation[currentDate]! > 0)
         {
-            // increments the count of selected student
-            
-            // immediately displays the change in count / color
-            let countString = String(classesArray[classP].classList[index].studentParticipation[currentDate]!)
-            var x: Int = (classesArray[classP].classList[index].studentParticipation[currentDate]! + 1)
-            classesArray[classP].classList[index].studentParticipation[currentDate] = x
-            // take out later
-            classesArray[classP].classList[index].count += 1
-            print(classesArray[classP].classList[0].studentParticipation[currentDate] ?? 1)
-            self.StudentCountButton.setTitle(String(x), for: .normal)
-            if (classesArray[classP].classList[index].studentParticipation[currentDate]! > 0)
-            {
-                self.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
-            }
+            self.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
         }
-        
-        
     }
 }
-

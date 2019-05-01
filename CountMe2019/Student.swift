@@ -10,13 +10,10 @@ import Foundation
 class Student: NSObject, Codable {
     var firstName: String
     var lastName: String
-    var count: Int
-    var studentParticipation = [String: Int]()
+    var studentParticipation = [Date: Int]()
     init(_ fN: String, _ lN: String)
     {
         self.firstName = fN
         self.lastName = lN
-        self.count = 0
     }
-    
 }
