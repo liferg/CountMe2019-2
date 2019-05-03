@@ -22,6 +22,7 @@ class CollectionViewCell: UICollectionViewCell {
         // increments the count of selected student
         
         // immediately displays the change in count / color
+
         var x: Int = (classesArray[classP].classList[index].studentParticipation[currentDate]! + 1)
         classesArray[classP].classList[index].studentParticipation[currentDate] = x
         self.StudentCountButton.setTitle(String(x), for: .normal)

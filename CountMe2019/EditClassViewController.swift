@@ -15,6 +15,8 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var ClassPicker: UIPickerView!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var check: Bool = true
+    
     // loading functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,28 +35,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
         dateLabel.text = dateFormatter.string(from: currentDate)
-        var check: Bool = true
-        if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
-        {
-            for (date1, numbers) in classesArray[0].classList[0].studentParticipation
-            {
-                if (currentDate == date1)
-                {
-                    check = false
-                    return
-                }
-            }
-        }
-        if(check)
-        {
-            if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
-            {
-                for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
-                {
-                    classesArray[classP].classList[i].studentParticipation.updateValue(0, forKey: currentDate)
-                }
-            }
-        }
+    
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         // Do any additional setup after loading the view.
@@ -88,15 +69,19 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
         dateLabel.text = dateFormatter.string(from: currentDate)
-        var check: Bool = true
+        
+        print("working1")
         if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
         {
-            for (date1, numbers) in classesArray[classP].classList[0].studentParticipation
+            print("working123")
+            for participation in classesArray[classP].classList[0].studentParticipation
             {
-                if (currentDate == date1)
+                print("working2")
+                if (Calendar.current.isDateInToday(participation.key))
                 {
+                    print("working3")
                     check = false
-                    return
+                    break
                 }
             }
         }
@@ -104,9 +89,14 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         {
             if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
             {
-                for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
+                for classInt in stride(from: 0, to: classesArray.count, by: 1)
                 {
-                    classesArray[classP].classList[i].studentParticipation.updateValue(0, forKey: currentDate)
+                    for studentInt in stride(from:0, to: classesArray[classInt].classList.count, by:1)
+                    {
+                        classesArray[classInt].classList[studentInt].studentParticipation.updateValue(0, forKey: currentDate)
+                        //print(classesArray[0].classList[0].studentParticipation[currentDate])
+                        //print("hi")
+                    }
                 }
             }
         }
@@ -144,6 +134,9 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.StudentCountButton.setTitle("", for: .normal)
         
         // cell color and count is refreshed
+        
+        //ISSUE HERE
+        //print(classesArray[classP].classList[indexPath.row].studentParticipation[currentDate])
         let countInt = classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] ?? 0
         let countString = String(countInt)
         cell.StudentCountButton.setTitle(countString, for: .normal)
@@ -179,28 +172,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         classP = row
         collection.reloadData()
         currentDate = Date()
-        var check: Bool = true
-        if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
-        {
-            for (date1, numbers) in classesArray[classP].classList[0].studentParticipation
-            {
-                if (currentDate == date1)
-                {
-                    check = false
-                    return
-                }
-            }
-        }
-        if(check)
-        {
-            if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
-            {
-                for i in stride(from:0, to: classesArray[classP].classList.count, by:1)
-                {
-                    classesArray[classP].classList[i].studentParticipation.updateValue(0, forKey: currentDate)
-                }
-            }
-        }
         
     }
     /*
