@@ -63,9 +63,9 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         let name = classesArray[classP].classList[indexPath.row]
         classStatsCell.textLabel?.text = name.firstName + " " + name.lastName
         classStatsCell.studentCountLabel.text = String(0)
-        if (classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] != 0)
+        if (classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate] != 0)
         {
-            let count = classesArray[classP].classList[indexPath.row].studentParticipation[currentDate]
+            let count = classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate]
             classStatsCell.studentCountLabel.text = String(count ?? 0)
         }
         return(classStatsCell)

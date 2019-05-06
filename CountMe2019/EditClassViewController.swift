@@ -15,7 +15,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var ClassPicker: UIPickerView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var check: Bool = true
     
     // loading functions
     override func viewDidLoad() {
@@ -33,6 +32,15 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        func stripTime(from passedDate: Date) -> Date {
+            let components = Calendar.current.dateComponents([.year, .month, .day], from: passedDate)
+            let newDate = Calendar.current.date(from: components)!
+            return newDate
+        }
+        
+        newCurrentDate = stripTime(from: currentDate)
+        
         
         dateLabel.text = dateFormatter.string(from: currentDate)
     
@@ -70,6 +78,8 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         dateLabel.text = dateFormatter.string(from: currentDate)
         
+        var check: Bool = true
+        
         print("working1")
         if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
         {
@@ -93,9 +103,8 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
                 {
                     for studentInt in stride(from:0, to: classesArray[classInt].classList.count, by:1)
                     {
-                        classesArray[classInt].classList[studentInt].studentParticipation.updateValue(0, forKey: currentDate)
-                        //print(classesArray[0].classList[0].studentParticipation[currentDate])
-                        //print("hi")
+                        classesArray[classInt].classList[studentInt].studentParticipation.updateValue(0, forKey: newCurrentDate)
+                        
                     }
                 }
             }
@@ -136,11 +145,12 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         // cell color and count is refreshed
         
         //ISSUE HERE
-        //print(classesArray[classP].classList[indexPath.row].studentParticipation[currentDate])
-        let countInt = classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] ?? 0
+        print(newCurrentDate)
+        print(classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate])
+        let countInt = classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate] ?? 0
         let countString = String(countInt)
         cell.StudentCountButton.setTitle(countString, for: .normal)
-        if (classesArray[classP].classList[indexPath.row].studentParticipation[currentDate] ?? 0 > 0)
+        if (classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate] ?? 0 > 0)
         {
             cell.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
         }

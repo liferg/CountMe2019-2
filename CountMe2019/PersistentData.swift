@@ -12,14 +12,11 @@ import os.log
 class PersistentData: Codable {
     var firstName: String
     var lastName: String
-    var count: Int
     var studentParticipation = [Date: Int]()
     
     init(_ fn: String, _ ln: String) {
         firstName = fn
         lastName = ln
-        count = 0
-        studentParticipation = [Date(): 0]
     }
     // ********** You should not have to change ANYTHING in "func archive()" to use *************
     /**
@@ -58,7 +55,6 @@ class PersistentData: Codable {
                 // *** Replace all the assignment statements BELOW to "restore" all properties of the object ***
                 firstName = recoveredData.firstName
                 lastName = recoveredData.lastName
-                count = recoveredData.count
                 studentParticipation = recoveredData.studentParticipation
                 // *** Replace all the assignment statements ABOVE to "restore" all properties of the object ***
             } catch {

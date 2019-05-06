@@ -14,4 +14,5 @@ var classesArray = [Classroom]()
 var classP: Int = 0
 var student = PersistentData("", "")
 var currentDate = Date()
+var newCurrentDate = Date()
 

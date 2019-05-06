@@ -22,11 +22,11 @@ class CollectionViewCell: UICollectionViewCell {
         // increments the count of selected student
         
         // immediately displays the change in count / color
-
-        var x: Int = (classesArray[classP].classList[index].studentParticipation[currentDate]! + 1)
-        classesArray[classP].classList[index].studentParticipation[currentDate] = x
+        
+        var x: Int = (classesArray[classP].classList[index].studentParticipation[newCurrentDate]! + 1)
+        classesArray[classP].classList[index].studentParticipation[newCurrentDate] = x
         self.StudentCountButton.setTitle(String(x), for: .normal)
-        if (classesArray[classP].classList[index].studentParticipation[currentDate]! > 0)
+        if (classesArray[classP].classList[index].studentParticipation[newCurrentDate]! > 0)
         {
             self.StudentButton.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
         }

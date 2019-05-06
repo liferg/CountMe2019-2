@@ -15,5 +15,6 @@ class Student: NSObject, Codable {
     {
         self.firstName = fN
         self.lastName = lN
+
     }
 }
