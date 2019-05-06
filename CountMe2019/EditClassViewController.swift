@@ -33,12 +33,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
-        func stripTime(from passedDate: Date) -> Date {
-            let components = Calendar.current.dateComponents([.year, .month, .day], from: passedDate)
-            let newDate = Calendar.current.date(from: components)!
-            return newDate
-        }
-        
         newCurrentDate = stripTime(from: currentDate)
         
         
@@ -99,15 +93,12 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         {
             if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
             {
-                for classInt in stride(from: 0, to: classesArray.count, by: 1)
-                {
-                    for studentInt in stride(from:0, to: classesArray[classInt].classList.count, by:1)
+                    for studentInt in stride(from:0, to: classesArray[classP].classList.count, by:1)
                     {
-                        classesArray[classInt].classList[studentInt].studentParticipation.updateValue(0, forKey: newCurrentDate)
+                        classesArray[classP].classList[studentInt].studentParticipation.updateValue(0, forKey: newCurrentDate)
                         
                     }
                 }
-            }
         }
     }
     
@@ -182,6 +173,34 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         classP = row
         collection.reloadData()
         currentDate = Date()
+        var check: Bool = true
+        
+        print("working1")
+        if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
+        {
+            print("working123")
+            for participation in classesArray[classP].classList[0].studentParticipation
+            {
+                print("working2")
+                if (Calendar.current.isDateInToday(participation.key))
+                {
+                    print("working3")
+                    check = false
+                    break
+                }
+            }
+        }
+        if(check)
+        {
+            if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
+            {
+                for studentInt in stride(from:0, to: classesArray[classP].classList.count, by:1)
+                {
+                    classesArray[classP].classList[studentInt].studentParticipation.updateValue(0, forKey: newCurrentDate)
+                    
+                }
+            }
+        }
         
     }
     /*

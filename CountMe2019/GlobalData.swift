@@ -16,3 +16,10 @@ var student = PersistentData("", "")
 var currentDate = Date()
 var newCurrentDate = Date()
 
+func stripTime(from passedDate: Date) -> Date {
+    let components = Calendar.current.dateComponents([.year, .month, .day], from: passedDate)
+    let newDate = Calendar.current.date(from: components)!
+    return newDate
+}
+
+
