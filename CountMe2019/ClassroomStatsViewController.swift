@@ -32,7 +32,13 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         datePicker2?.datePickerMode = .date
         datePicker2?.addTarget(self, action: #selector(ClassroomStatsViewController.dateChanged(datePicker2:)), for: .valueChanged)
         EndDateText.inputView = datePicker2
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         
+        
+    }
+    @objc func loadList(notification: NSNotification){
+        //load data here
+        classroomStatsTableView.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -53,7 +59,6 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
             return 0
         }
     }
-    
     // decides what is in each row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -61,13 +66,24 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         
         let classStatsCell = tableView.dequeueReusableCell(withIdentifier: "classStatsCell", for: indexPath) as! ClassroomStatsTableViewCell
         let name = classesArray[classP].classList[indexPath.row]
+        var count: Int = 0
         classStatsCell.textLabel?.text = name.firstName + " " + name.lastName
         classStatsCell.studentCountLabel.text = String(0)
-        if (classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate] != 0)
-        {
-            let count = classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate]
-            classStatsCell.studentCountLabel.text = String(count ?? 0)
-        }
+            //let count = classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate]
+            for dateCount in classesArray[classP].classList[indexPath.row].studentParticipation
+            {
+                print(dateCount.key)
+                print(datePicker!.date)
+                if(classesArray[classP].classList[indexPath.row].studentParticipation[dateCount.key] != nil)
+                {
+                    //classesArray[classP].classList[indexPath.row].studentParticipation[datePicker!.date] = 4
+                    if(datePicker!.date < dateCount.key && dateCount.key < datePicker2!.date)
+                    {
+                        count = count + dateCount.value
+                    }
+                }
+            }
+        classStatsCell.studentCountLabel.text = String(count ?? 0)
         return(classStatsCell)
     }
     
