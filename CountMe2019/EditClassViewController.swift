@@ -165,7 +165,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     // title of row
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
-        return classesArray[row].className
+        return classesArray[row].className + " - " + String(classesArray[row].classPeriod)
     }
     // what it will do when you select or scroll to a row
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
