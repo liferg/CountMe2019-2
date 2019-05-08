@@ -37,7 +37,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         
         dateLabel.text = dateFormatter.string(from: currentDate)
-    
+    editSwitch.setOn(false, animated: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         // Do any additional setup after loading the view.
@@ -48,6 +48,23 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         //load data here
         collection.reloadData()
     }
+    
+    @IBOutlet weak var editSwitch: UISwitch!
+    
+    
+    
+    @IBAction func decrementCount(_ sender: Any) {
+    if editSwitch.isOn
+        {
+            edit = false
+        }
+    if(!editSwitch.isOn)
+    {
+    edit = true
+        }
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -66,7 +83,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // Do any additional setup after loading the view.
         currentDate = Date()
-        
+        editSwitch.setOn(false, animated: true)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
