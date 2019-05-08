@@ -15,56 +15,35 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var ClassPicker: UIPickerView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
     // loading functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
+        
+        // persistent data
         let tempClass = ClassroomPersistentData.init(0, "")
         tempClass.restore(fileName: "class")
         let tempStudent = PersistentData.init("", "")
         tempStudent.restore(fileName: "student")
         
-        //set currentDate
-        
-        currentDate = Date()
-        
+        // date formatting set up
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        
+        // strip time
         newCurrentDate = stripTime(from: currentDate)
-        
-        
+        // set date
         dateLabel.text = dateFormatter.string(from: currentDate)
-    editSwitch.setOn(false, animated: true)
+        // set switch to off (regular)
+        editSwitch.setOn(false, animated: true)
+        // set edit
+        edit = true
         
+        // reload collection view
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         // Do any additional setup after loading the view.
         
     }
-    
-    @objc func loadList(notification: NSNotification){
-        //load data here
-        collection.reloadData()
-    }
-    
-    @IBOutlet weak var editSwitch: UISwitch!
-    
-    
-    
-    @IBAction func decrementCount(_ sender: Any) {
-    if editSwitch.isOn
-        {
-            edit = false
-        }
-    if(!editSwitch.isOn)
-    {
-    edit = true
-        }
-    }
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -75,11 +54,11 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         let tempStudent = PersistentData.init("", "")
         tempStudent.restore(fileName: "student")
         collection.reloadData()
-        /*if(classesArray.count == 0)
-         {
-         performSegue(withIdentifier: "toEdit", sender: self)
-         }
-         */
+        
+        // set switch to off (regular)
+        editSwitch.setOn(false, animated: true)
+        // set edit
+        edit = true
         
         // Do any additional setup after loading the view.
         currentDate = Date()
@@ -91,36 +70,36 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         var check: Bool = true
         
-        print("working1")
-        if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
-        {
-            print("working123")
-            for participation in classesArray[classP].classList[0].studentParticipation
-            {
-                print("working2")
-                if (Calendar.current.isDateInToday(participation.key))
-                {
-                    print("working3")
+        if(classesArray.count != 0 && classesArray[classP].classList.count != 0) {
+            for participation in classesArray[classP].classList[0].studentParticipation {
+                if (Calendar.current.isDateInToday(participation.key)) {
                     check = false
                     break
                 }
             }
         }
-        if(check)
-        {
-            if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
-            {
-                    for studentInt in stride(from:0, to: classesArray[classP].classList.count, by:1)
-                    {
-                        classesArray[classP].classList[studentInt].studentParticipation.updateValue(0, forKey: newCurrentDate)
-                        
-                    }
+        if(check) {
+            if(classesArray.count != 0 && classesArray[classP].classList.count != 0) {
+                for studentInt in stride(from:0, to: classesArray[classP].classList.count, by:1) {
+                    classesArray[classP].classList[studentInt].studentParticipation.updateValue(0, forKey: newCurrentDate)
                 }
+            }
         }
     }
     
-    @IBAction func SelectDateButton(_ sender: Any) {
-        performSegue(withIdentifier: "pickDate", sender: self)
+    @objc func loadList(notification: NSNotification){
+        // load data
+        collection.reloadData()
+    }
+    
+    @IBOutlet weak var editSwitch: UISwitch!
+    @IBAction func decrementCount(_ sender: Any) {
+        if editSwitch.isOn {
+            edit = false
+        }
+        if(!editSwitch.isOn) {
+            edit = true
+        }
     }
     
     // COLLECTION VIEW FUNCTIONS
@@ -154,7 +133,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         //ISSUE HERE
         print(newCurrentDate)
-        print(classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate])
+        print(classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate]!)
         let countInt = classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate] ?? 0
         let countString = String(countInt)
         cell.StudentCountButton.setTitle(countString, for: .normal)

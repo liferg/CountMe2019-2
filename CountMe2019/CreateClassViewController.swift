@@ -30,6 +30,12 @@ class CreateClassViewController: UIViewController{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        // updates class count if student is added while a class in on this view
+        if (classesArray.count != 0 && periodFinal.text != ""){
+            countVal.text = String(classesArray[classIndex].classList.count)
+        }
+    }
     
     // variables
     var per: Int = 0
