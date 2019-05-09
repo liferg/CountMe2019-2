@@ -17,12 +17,17 @@ class AddStudentViewController: UIViewController {
         var first = String(fName.text!)
         var last = String(lName.text!)
         var stud = Student(first, last)
-        classesArray[classP].addStudent(stud)
-        let studentIndex = classesArray[classP].classList.count - 1
         
-        newCurrentDate = stripTime(from: currentDate)
+        if(classesArray.count != 0)
+        {
+            classesArray[classP].addStudent(stud)
+            let studentIndex = classesArray[classP].classList.count - 1
+            
+            newCurrentDate = stripTime(from: currentDate)
+            
+            classesArray[classP].classList[studentIndex].studentParticipation.updateValue(0, forKey: newCurrentDate)
+        }
         
-        classesArray[classP].classList[studentIndex].studentParticipation.updateValue(0, forKey: newCurrentDate)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         dismiss(animated: true)
     }

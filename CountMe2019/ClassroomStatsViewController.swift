@@ -88,6 +88,12 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         return(classStatsCell)
     }
     
+    //refresh with submit button
+    @IBAction func submit(_ sender: Any) {
+        classroomStatsTableView.reloadData()
+    }
+    
+    
     // PICKER VIEW FUNCTIONS
     
     // components of pickerview

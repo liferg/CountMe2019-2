@@ -131,9 +131,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // cell color and count is refreshed
         
-        //ISSUE HERE
-        print(newCurrentDate)
-        print(classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate]!)
         let countInt = classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate] ?? 0
         let countString = String(countInt)
         cell.StudentCountButton.setTitle(countString, for: .normal)
