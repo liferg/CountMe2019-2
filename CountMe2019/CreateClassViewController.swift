@@ -102,6 +102,13 @@ class CreateClassViewController: UIViewController{
         newClassCheck = 0
     }
     
+    @IBAction func addTestingClass(_ sender: Any) {
+        let testClass = Classroom(1, "Spanish II")
+        classesArray.append(testClass)
+        for i in stride(from: 1, to: 51, by: 1) {
+            testClass.addStudent(Student("student", String(i)))
+        }
+    }
     
     /*
      // MARK: - Navigation

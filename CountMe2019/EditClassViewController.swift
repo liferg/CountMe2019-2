@@ -65,20 +65,22 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         editSwitch.setOn(false, animated: true)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        
         dateLabel.text = dateFormatter.string(from: currentDate)
         
-        var check: Bool = true
-        
+        // checks to see if there are index values at the current date for the class displayed
+        // check is set to true
+        var checkForIndexAtDate: Bool = true
+        // if it finds indexes at that date, sets check to false
         if(classesArray.count != 0 && classesArray[classP].classList.count != 0) {
             for participation in classesArray[classP].classList[0].studentParticipation {
                 if (Calendar.current.isDateInToday(participation.key)) {
-                    check = false
+                    checkForIndexAtDate = false
                     break
                 }
             }
         }
-        if(check) {
+        // if no index for currentDate is found this runs and creates indexes at that date
+        if(checkForIndexAtDate) {
             if(classesArray.count != 0 && classesArray[classP].classList.count != 0) {
                 for studentInt in stride(from:0, to: classesArray[classP].classList.count, by:1) {
                     classesArray[classP].classList[studentInt].studentParticipation.updateValue(0, forKey: newCurrentDate)

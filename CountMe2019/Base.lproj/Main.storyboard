@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Edit Class-->
+        <!--Edit-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="CountParticipationViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                         <color key="backgroundColor" red="0.65675756299999999" green="0.75968848489999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Edit Class" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Edit" image="Edit-40x40" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="editClassPickerView" destination="7yM-2q-36h" id="uR7-xp-jQ9"/>
                         <outlet property="editClassTableView" destination="5CE-qf-pzI" id="lrb-IU-yjp"/>
@@ -273,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="1560.9375" y="-573.6328125"/>
         </scene>
-        <!--Item-->
+        <!--Add Class-->
         <scene sceneID="UcT-uf-Dtv">
             <objects>
                 <viewController id="Zhb-J1-kCN" customClass="CreateClassViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -386,11 +386,19 @@
                                 <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="33"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tL4-pf-YzU">
+                                <rect key="frame" x="524" y="338" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Testing Class"/>
+                                <connections>
+                                    <action selector="addTestingClass:" destination="Zhb-J1-kCN" eventType="touchUpInside" id="VZG-Hx-t12"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.65675756299999999" green="0.75968848489999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="57B-4q-IKb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ibd-zg-3ml" userLabel="Create A Class"/>
+                    <tabBarItem key="tabBarItem" title="Add Class" image="Add-40x40" id="Ibd-zg-3ml" userLabel="Create A Class"/>
                     <connections>
                         <outlet property="className" destination="6IS-pC-wjJ" id="2Om-J5-dqt"/>
                         <outlet property="classNameFinal" destination="zNk-uG-MuO" id="ry1-94-Uu4"/>
@@ -406,7 +414,7 @@
             </objects>
             <point key="canvasLocation" x="748.4375" y="814.453125"/>
         </scene>
-        <!--Class Statistics-->
+        <!--Statistics-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="ClassroomStatsViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -501,7 +509,7 @@
                         <color key="backgroundColor" red="0.65675756299999999" green="0.75968848489999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Class Statistics" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="Stats-40x40" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="ClassPicker" destination="tFP-4H-fVv" id="fEg-8Z-N5j"/>
                         <outlet property="EndDateText" destination="KD7-uh-zld" id="Pep-Zd-0pQ"/>
@@ -596,7 +604,7 @@
             </objects>
             <point key="canvasLocation" x="1560.9375" y="105.46875"/>
         </scene>
-        <!--Count Participation-->
+        <!--Classroom-->
         <scene sceneID="aba-Vt-G9S">
             <objects>
                 <viewController id="hdc-IM-OGl" customClass="EditClassViewController" customModule="CountMe2019" customModuleProvider="target" sceneMemberID="viewController">
@@ -697,7 +705,7 @@
                         <color key="backgroundColor" red="0.65675756297230348" green="0.75968848488333773" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="amQ-g7-5a4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Count Participation" id="dzu-fo-Iwd"/>
+                    <tabBarItem key="tabBarItem" title="Classroom" image="Classroom-40x40" id="dzu-fo-Iwd"/>
                     <connections>
                         <outlet property="ClassPicker" destination="OeH-SB-xkz" id="J5B-8R-7jL"/>
                         <outlet property="collection" destination="DwM-v9-WOZ" id="SRc-zx-ZYx"/>
@@ -733,10 +741,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Add-40x40" width="40" height="40"/>
+        <image name="Classroom-40x40" width="40" height="40"/>
+        <image name="Edit-40x40" width="40" height="40"/>
+        <image name="Stats-40x40" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sla-xH-rxV"/>
+        <segue reference="26L-XS-nWg"/>
     </inferredMetricsTieBreakers>
 </document>
