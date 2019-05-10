@@ -92,12 +92,16 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
             {
                 //checks if there is student participation at the date - if not it won't try to find a count for that day
                 if(classesArray[classP].classList[indexPath.row].studentParticipation[dateCount.key] != nil) {
+                    
                     //testing to see if it counts participation count correctly 
                     //classesArray[classP].classList[indexPath.row].studentParticipation[datePicker!.date] = 4
                     //if the date within the array is within the selected dates, it adds the count to the count that will be displayed
+                    
                     if(datePicker!.date < dateCount.key && dateCount.key < datePicker2!.date) {
                         count = count + dateCount.value
+                        
                         // If it breaks with multiple dates this is why
+                        
                         classStatsCell.studentCountLabel.text = String(count)
                     }
                 }

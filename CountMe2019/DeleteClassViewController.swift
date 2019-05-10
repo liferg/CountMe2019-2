@@ -15,6 +15,8 @@ class DeleteClassViewController: UIViewController {
         {
             classesArray.remove(at: classP)
         }
+        classP = 0
+        
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
             dismiss(animated: true)
     }

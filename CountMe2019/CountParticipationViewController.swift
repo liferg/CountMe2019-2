@@ -39,6 +39,9 @@ class CountParticipationViewController: UIViewController, UITableViewDelegate, U
     @objc func loadList(notification: NSNotification){
         //load data here
         editClassTableView.reloadData()
+        self.editClassPickerView.delegate = self
+        self.editClassPickerView.dataSource = self
+        editClassPickerView.selectRow(classP, inComponent: 0, animated: true)
     }
     
     
