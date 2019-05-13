@@ -21,12 +21,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
         
-        // persistent data
-        let tempClass = ClassroomPersistentData.init(0, "")
-        tempClass.restore(fileName: "class")
-        let tempStudent = PersistentData.init("", "")
-        tempStudent.restore(fileName: "student")
-        
         // date formatting set up
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -49,10 +43,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidAppear(true)
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
-        let tempClass = ClassroomPersistentData.init(0, "")
-        tempClass.restore(fileName: "class")
-        let tempStudent = PersistentData.init("", "")
-        tempStudent.restore(fileName: "student")
         collection.reloadData()
         
         // set switch to off (regular)

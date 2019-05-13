@@ -29,5 +29,3 @@ func stripTime(from passedDate: Date) -> Date {
 // variable to check decrement or increment
 var edit: Bool = true
 
-// persistent data stuff
-var student = PersistentData("", "")
