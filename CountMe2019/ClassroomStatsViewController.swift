@@ -26,7 +26,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         // Do any additional setup after loading the view, typically from a nib.
         //datePicker
         datePicker = UIDatePicker()
-        datePicker?.setDate(Date(), animated: false)
+        datePicker?.setDate(newCurrentDate, animated: false)
         datePicker?.datePickerMode = .date
         dateChanged(datePicker: datePicker!)
         datePicker?.addTarget(self, action: #selector(ClassroomStatsViewController.dateChanged(datePicker:)), for: .valueChanged)
@@ -34,7 +34,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         //datePicker2
         datePicker2 = UIDatePicker()
         datePicker2?.datePickerMode = .date
-        datePicker2?.setDate(Date(), animated: false)
+        datePicker2?.setDate(newCurrentDate, animated: false)
         dateChanged(datePicker2: datePicker2!)
         datePicker2?.addTarget(self, action: #selector(ClassroomStatsViewController.dateChanged(datePicker2:)), for: .valueChanged)
         EndDateText.inputView = datePicker2
@@ -42,6 +42,8 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         
         // strip time
         newCurrentDate = stripTime(from: currentDate)
+        
+        calculated = false
         
     }
     @objc func loadList(notification: NSNotification){
@@ -54,6 +56,7 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         self.ClassPicker.dataSource = self
         classroomStatsTableView.reloadData()
         ClassPicker.selectRow(classP, inComponent: 0, animated: true)
+        calculated = false
     }
     
     // TABLE VIEW FUNCTIONS
@@ -76,47 +79,45 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
         let name = classesArray[classP].classList[indexPath.row]
         var count: Int = 0
         classStatsCell.textLabel?.text = name.firstName + " " + name.lastName
-        classStatsCell.studentCountLabel.text = String(0)
-        
-        // checks to see if there are index values at the current date for the class displayed
-        // if there are it displays current date count for students
-        if(classesArray.count != 0 && classesArray[classP].classList.count != 0) {
-            print("check 1")
-            for participation in classesArray[classP].classList[0].studentParticipation {
-                if (Calendar.current.isDateInToday(participation.key)) {
-                    print("hi")
-                    let count = classesArray[classP].classList[indexPath.row].studentParticipation[newCurrentDate]!
-                    print(String(count))
-                    classStatsCell.studentCountLabel.text = String(count)
-                }
-            }
-        }
         
         // display count according to start and end date
         // goes through studentParticipationArray
-        for dateCount in classesArray[classP].classList[indexPath.row].studentParticipation
+        if (calculated)
         {
-            //checks if there is student participation at the date - if not it won't try to find a count for that day
-            if(classesArray[classP].classList[indexPath.row].studentParticipation[dateCount.key] != nil) {
-                //testing to see if it counts participation count correctly
-                //classesArray[classP].classList[indexPath.row].studentParticipation[datePicker!.date] = 4
-                //if the date within the array is within the selected dates, it adds the count to the count that will be displayed
-                if(datePicker!.date < dateCount.key && dateCount.key < datePicker2!.date) {
-                    count = count + dateCount.value
-                    // If it breaks with multiple dates this is why
-                    classStatsCell.studentCountLabel.text = String(count)
+            for dateCount in classesArray[classP].classList[indexPath.row].studentParticipation
+            {
+                //checks if there is student participation at the date - if not it won't try to find a count for that day
+                if(classesArray[classP].classList[indexPath.row].studentParticipation[dateCount.key] != nil)
+                {
+                    
+                    //testing to see if it counts participation count correctly
+                    //classesArray[classP].classList[indexPath.row].studentParticipation[datePicker!.date] = 4
+                    //if the date within the array is within the selected dates, it adds the count to the count that will be displayed
+                    
+                    if(datePicker!.date <= dateCount.key && dateCount.key <= datePicker2!.date)
+                    {
+                        count = count + dateCount.value
+                        
+                        // If it breaks with multiple dates this is why
+                        
+                        classStatsCell.studentCountLabel.text = String(count)
+                    }
                 }
             }
         }
-        classStatsCell.selectionStyle = .none
-        return(classStatsCell)
+        else
+        {
+            classStatsCell.studentCountLabel.text = ""
+        }
+        
+        return classStatsCell
     }
     
     //refresh with submit button
     @IBAction func submit(_ sender: Any) {
+        calculated = true
         classroomStatsTableView.reloadData()
     }
-    
     
     // PICKER VIEW FUNCTIONS
     
@@ -164,3 +165,4 @@ class ClassroomStatsViewController: UIViewController, UITableViewDataSource, UIT
     
     
 }
+
