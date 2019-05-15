@@ -75,6 +75,8 @@ class CreateClassViewController: UIViewController{
                 lastN = String(lastName.text!)
                 var student = Student(firstN, lastN)
                 classesArray[classIndex].addStudent(student)
+                var studentSaved = Student(firstN, lastN)
+                studentSaved.archive(fileName: "saveStudent")
                 firstName.text = ""
                 lastName.text = ""
                 let countText = String(classesArray[classIndex].classList.count)

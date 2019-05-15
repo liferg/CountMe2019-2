@@ -23,6 +23,7 @@
 		895C5A91222EF35C00FB4DED /* DeleteClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C5A90222EF35C00FB4DED /* DeleteClassViewController.swift */; };
 		895C5A952230378400FB4DED /* AddStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C5A942230378400FB4DED /* AddStudentViewController.swift */; };
 		E0531820223BF38F00CE0A28 /* DatePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E053181F223BF38F00CE0A28 /* DatePopUpViewController.swift */; };
+		E09A99DE228C68B700D9D350 /* GlobalPersistentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A99DD228C68B700D9D350 /* GlobalPersistentData.swift */; };
 		E0D7521321DE749700394DAA /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7521221DE749700394DAA /* Student.swift */; };
 		E0D7521521DE749F00394DAA /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7521421DE749F00394DAA /* Classroom.swift */; };
 		E0D7525321DFC25A00394DAA /* CreateClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7525221DFC25A00394DAA /* CreateClassViewController.swift */; };
@@ -69,6 +70,7 @@
 		895C5A90222EF35C00FB4DED /* DeleteClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteClassViewController.swift; sourceTree = "<group>"; };
 		895C5A942230378400FB4DED /* AddStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentViewController.swift; sourceTree = "<group>"; };
 		E053181F223BF38F00CE0A28 /* DatePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePopUpViewController.swift; sourceTree = "<group>"; };
+		E09A99DD228C68B700D9D350 /* GlobalPersistentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalPersistentData.swift; sourceTree = "<group>"; };
 		E0D7521221DE749700394DAA /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		E0D7521421DE749F00394DAA /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		E0D7525221DFC25A00394DAA /* CreateClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClassViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				7BE401B121DD213000D0F8E7 /* Info.plist */,
 				E0D7521221DE749700394DAA /* Student.swift */,
 				E0D7521421DE749F00394DAA /* Classroom.swift */,
+				E09A99DD228C68B700D9D350 /* GlobalPersistentData.swift */,
 			);
 			path = CountMe2019;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D7521521DE749F00394DAA /* Classroom.swift in Sources */,
+				E09A99DE228C68B700D9D350 /* GlobalPersistentData.swift in Sources */,
 				E0D7525521DFC35B00394DAA /* EditClassViewController.swift in Sources */,
 				491E7E0A223FF1BF004339C6 /* ClassroomStatsTableViewCell.swift in Sources */,
 				49CF5FA121E795B70065B33A /* CollectionViewCell.swift in Sources */,

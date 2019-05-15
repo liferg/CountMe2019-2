@@ -10,14 +10,14 @@ import Foundation
 import os.log
 
 class GlobalPersistentData: Codable {
-    var classesArray = [ClassroomPersistentData]()
+    var classesArray = [Classroom]()
     var classP: Int = 0
-    var student = PersistentData("", "")
+    var student = Student("", "")
     
     init() {
-        classesArray = [ClassroomPersistentData]()
+        classesArray = [Classroom]()
         classP = 0
-        student = PersistentData("", "")
+        student = Student("", "")
     }
     // ********** You should not have to change ANYTHING in "func archive()" to use *************
     /**
@@ -67,3 +67,4 @@ class GlobalPersistentData: Codable {
         }
     }
 }
+
