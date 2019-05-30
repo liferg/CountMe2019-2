@@ -29,8 +29,9 @@ func stripTime(from passedDate: Date) -> Date {
 // variable to check decrement or increment
 var edit: Bool = true
 
-//persistent
-var studentPersistent = Student("", "")
+// persistent data stuff
+var student = PersistentData("", "")
+var classroom = ClassroomPersistentData(0, "")
 var global = GlobalPersistentData()
-var classroomPersistent = Classroom(0, "")
+
 

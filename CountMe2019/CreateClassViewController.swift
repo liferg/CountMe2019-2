@@ -75,7 +75,7 @@ class CreateClassViewController: UIViewController{
                 lastN = String(lastName.text!)
                 var student = Student(firstN, lastN)
                 classesArray[classIndex].addStudent(student)
-                var studentSaved = Student(firstN, lastN)
+                var studentSaved = PersistentData(firstN, lastN)
                 studentSaved.archive(fileName: "saveStudent")
                 firstName.text = ""
                 lastName.text = ""

@@ -10,14 +10,14 @@ import Foundation
 import os.log
 
 class GlobalPersistentData: Codable {
-    var classesArray = [Classroom]()
+    var classesArray = [ClassroomPersistentData]()
     var classP: Int = 0
-    var student = Student("", "")
+    var student = PersistentData("", "")
     
     init() {
-        classesArray = [Classroom]()
+        classesArray = [ClassroomPersistentData]()
         classP = 0
-        student = Student("", "")
+        student = PersistentData("", "")
     }
     // ********** You should not have to change ANYTHING in "func archive()" to use *************
     /**
@@ -60,11 +60,12 @@ class GlobalPersistentData: Codable {
                 student = recoveredData.student
                 // *** Replace all the assignment statements ABOVE to "restore" all properties of the object ***
             } catch {
-                os_log("Failed to recover data", log: OSLog.default, type: .error)
+                os_log("Failed to recover data - 1", log: OSLog.default, type: .error)
             }
         } else {
-            os_log("Failed to recover data", log: OSLog.default, type: .error)
+            os_log("Failed to recover data - 2", log: OSLog.default, type: .error)
         }
     }
 }
+
 

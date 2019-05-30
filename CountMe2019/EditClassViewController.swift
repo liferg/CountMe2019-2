@@ -21,6 +21,12 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
         
+        /* OLD persistent data
+         let tempClass = ClassroomPersistentData.init(0, "")
+         tempClass.restore(fileName: "class")
+         let tempStudent = PersistentData.init("", "")
+         tempStudent.restore(fileName: "student") */
+        
         // date formatting set up
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -43,7 +49,13 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidAppear(true)
         self.ClassPicker.delegate = self
         self.ClassPicker.dataSource = self
-        collection.reloadData()
+        
+        /* persistent data
+         let tempClass = ClassroomPersistentData.init(0, "")
+         tempClass.restore(fileName: "class")
+         let tempStudent = PersistentData.init("", "")
+         tempStudent.restore(fileName: "student")
+         */
         
         // set switch to off (regular)
         editSwitch.setOn(false, animated: true)
@@ -52,10 +64,12 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         
         // Do any additional setup after loading the view.
         currentDate = Date()
-        editSwitch.setOn(false, animated: true)
+        // strip time
+        newCurrentDate = stripTime(from: currentDate)
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        dateLabel.text = dateFormatter.string(from: currentDate)
+        dateLabel.text = dateFormatter.string(from: newCurrentDate)
         
         // checks to see if there are index values at the current date for the class displayed
         // check is set to true
@@ -63,8 +77,9 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
         // if it finds indexes at that date, sets check to false
         if(classesArray.count != 0 && classesArray[classP].classList.count != 0) {
             for participation in classesArray[classP].classList[0].studentParticipation {
-                if (Calendar.current.isDateInToday(participation.key)) {
+                if (participation.key == newCurrentDate) {
                     checkForIndexAtDate = false
+                    print("it found indexes at this date")
                     break
                 }
             }
@@ -77,6 +92,7 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
                 }
             }
         }
+        collection.reloadData()
     }
     
     @objc func loadList(notification: NSNotification){
@@ -157,20 +173,15 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
     {
         classP = row
         collection.reloadData()
-        currentDate = Date()
-        var check: Bool = true
         
-        print("working1")
+        var check: Bool = true
         if(classesArray.count != 0 && classesArray[classP].classList.count != 0)
         {
-            print("working123")
             for participation in classesArray[classP].classList[0].studentParticipation
             {
-                print("working2")
-                if (Calendar.current.isDateInToday(participation.key))
-                {
-                    print("working3")
+                if (participation.key == newCurrentDate) {
                     check = false
+                    print("it found indexes at this date")
                     break
                 }
             }
@@ -186,7 +197,6 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
                 }
             }
         }
-        
     }
     /*
      // MARK: - Navigation
@@ -198,3 +208,4 @@ class EditClassViewController: UIViewController, UICollectionViewDataSource, UIC
      }
      */
 }
+
